@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="pane" prefHeight="400.0" prefWidth="600.0" style="-fx-background-radius: 30; -fx-border-radius: 30;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.LogInFormController">
+   <children>
+      <JFXTextField fx:id="txtUserName" labelFloat="true" layoutX="172.0" layoutY="109.0" prefHeight="38.0" prefWidth="256.0" promptText="User Name" style="-fx-border-color: black; -fx-border-radius: 10; -fx-background-radius: 10;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXTextField>
+      <JFXPasswordField fx:id="pswdPassword" layoutX="172.0" layoutY="216.0" prefHeight="38.0" prefWidth="256.0" promptText="Password" style="-fx-border-color: black; -fx-border-radius: 10; -fx-background-radius: 10;">
+         <font>
+            <Font size="18.0" />
+         </font></JFXPasswordField>
+      <JFXTextField fx:id="txtPassword" labelFloat="true" layoutX="172.0" layoutY="216.0" prefHeight="38.0" prefWidth="256.0" promptText="Password" style="-fx-border-color: black; -fx-border-radius: 10; -fx-background-radius: 10;">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </JFXTextField>
+   </children>
+</AnchorPane>
