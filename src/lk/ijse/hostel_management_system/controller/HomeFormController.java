@@ -9,6 +9,8 @@ import javafx.scene.layout.GridPane;
 public class HomeFormController {
 
     public BorderPane pane;
+    public AnchorPane clockPane1;
+    public AnchorPane clockPane11;
     @FXML
     private GridPane rightPane;
 
