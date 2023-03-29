@@ -4,11 +4,18 @@ import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.layout.GridPane;
+import javafx.stage.Stage;
+
+import java.io.IOException;
+import java.net.URL;
 
 public class RegistrationFormController {
 
@@ -59,8 +66,14 @@ public class RegistrationFormController {
     }
 
     @FXML
-    void btnNewStudent(ActionEvent event) {
-
+    void btnNewStudent(ActionEvent event) throws IOException {
+        URL resource = getClass().getResource("/lk/ijse/hostel_management_system/view/AddCustomerForm.fxml");
+        Parent load = FXMLLoader.load(resource);
+        Scene scene = new Scene(load);
+        Stage stage = new Stage();
+        stage.setScene(scene);
+        stage.resizableProperty().setValue(false);
+        stage.show();
     }
 
     @FXML
