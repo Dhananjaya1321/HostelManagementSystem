@@ -57,7 +57,7 @@
                   <DropShadow />
                </effect>
                <children>
-                  <TextArea fx:id="txtStatus" maxHeight="35.0" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                  <TextArea fx:id="txtStatus" maxHeight="35.0" maxWidth="500.0" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
                   <JFXDatePicker fx:id="txtDate" prefHeight="35.0" prefWidth="501.0" style="-fx-border-color: white; -fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <effect>
                         <InnerShadow color="#00000099" height="5.0" radius="2.0" width="5.0" />
@@ -78,7 +78,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXComboBox fx:id="cmbRoomTypeID" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                  <JFXComboBox fx:id="cmbRoomTypeID" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                      <effect>
                         <InnerShadow color="#00000098" height="5.0" radius="2.0" width="5.0" />
                      </effect>
@@ -88,7 +88,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label text="Status" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                  <Label text="Status" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -98,7 +98,7 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
-                  <Label layoutX="10.0" layoutY="7.0" text="Room Type ID" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
+                  <Label layoutX="10.0" layoutY="7.0" text="Room Type ID" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.rowIndex="3" GridPane.valignment="TOP">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -136,6 +136,19 @@
                      </effect>
                      <font>
                         <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblAvailableRoomQTY" layoutX="20.0" layoutY="37.0" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                     <effect>
+                        <InnerShadow color="#0000009a" height="5.0" radius="2.0" width="5.0" />
+                     </effect>
+                     <font>
+                        <Font name="System Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="20.0" layoutY="20.0" text="Available Room QTY" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.valignment="TOP">
+                     <font>
+                        <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
                </children>
