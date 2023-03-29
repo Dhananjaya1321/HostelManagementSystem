@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXComboBox?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.InnerShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane fx:id="popUpPane" prefHeight="541.0" prefWidth="378.0" style="-fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.AddCustomerFormController">
+   <children>
+      <TextField fx:id="txtID" layoutX="68.0" layoutY="35.0" prefHeight="35.0" prefWidth="250.0" />
+      <Label layoutX="64.0" layoutY="14.0" text="Student ID">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <TextField fx:id="txtName" layoutX="66.0" layoutY="100.0" prefHeight="35.0" prefWidth="250.0" />
+      <TextField fx:id="txtContact" layoutX="66.0" layoutY="254.0" prefHeight="35.0" prefWidth="250.0" />
+      <TextArea fx:id="txtAddress" layoutX="66.0" layoutY="166.0" maxHeight="54.0" prefHeight="54.0" prefWidth="250.0" />
+      <JFXDatePicker fx:id="txtDOB" layoutX="66.0" layoutY="320.0" prefHeight="35.0" prefWidth="250.0" style="-fx-border-color: white; -fx-background-color: white;">
+         <effect>
+            <InnerShadow color="#00000099" height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </JFXDatePicker>
+      <JFXButton buttonType="RAISED" layoutX="66.0" layoutY="477.0" onAction="#btnAdd" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #00f312; -fx-border-radius: 10; -fx-background-radius: 10;" text="Add">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </JFXButton>
+      <JFXComboBox fx:id="cmbGender" layoutX="64.0" layoutY="387.0" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: white;">
+         <effect>
+            <InnerShadow color="#00000098" height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </JFXComboBox>
+      <Label layoutX="63.0" layoutY="144.0" text="Address">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="299.0" text="Date Of Birth">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="79.0" text="Name">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="61.0" layoutY="366.0" text="Gender">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <Label layoutX="63.0" layoutY="232.0" text="Contact  No">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
