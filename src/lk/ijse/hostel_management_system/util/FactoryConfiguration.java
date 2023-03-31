@@ -14,7 +14,7 @@ public class FactoryConfiguration {
 
     private FactoryConfiguration() {
         sessionFactory=new Configuration()
-                .mergeProperties()
+                .mergeProperties(Utility.getProperties())
                 .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Room.class)
                 .addAnnotatedClass(Reservation.class)
