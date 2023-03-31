@@ -3,6 +3,8 @@
 <?import com.jfoenix.controls.JFXButton?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -41,7 +43,8 @@
                                     <Font name="System Bold" size="20.0" />
                                  </font>
                               </Label>
-                           </children></AnchorPane>
+                           </children>
+                        </AnchorPane>
                      </children>
                   </AnchorPane>
                </children>
@@ -60,35 +63,77 @@
                   <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <children>
-                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="69.0" maxWidth="300.0" onAction="#btnDashboard" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Dashboard">
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="69.0" maxWidth="300.0" onAction="#btnDashboard" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Dashboard  ">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -5;">
+                           <image>
+                              <Image url="@asset/icon/dashboard.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                   <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="17.0" maxWidth="300.0" onAction="#btnRegistration" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Registration " GridPane.rowIndex="1">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@asset/icon/online-registration.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="340.0" maxWidth="300.0" onAction="#btnStudent" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Students" GridPane.rowIndex="2">
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="340.0" maxWidth="300.0" onAction="#btnStudent" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Students     " GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -5;">
+                           <image>
+                              <Image url="@asset/icon/user.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" maxWidth="300.0" onAction="#btnRooms" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Rooms" GridPane.rowIndex="3">
+                  <JFXButton buttonType="RAISED" maxWidth="300.0" onAction="#btnRooms" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Rooms         " GridPane.rowIndex="3">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -5;">
+                           <image>
+                              <Image url="@asset/icon/bed.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="147.0" maxWidth="300.0" onAction="#btnSettings" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Settings" GridPane.rowIndex="4">
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="147.0" maxWidth="300.0" onAction="#btnSettings" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: WHITE; -fx-background-radius: 0 20 20 0;" text="Settings       " GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -5;">
+                           <image>
+                              <Image url="@asset/icon/setting.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="82.0" maxWidth="300.0" onAction="#btnLogOut" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: #FF0000; -fx-background-radius: 0 20 20 0; -fx-border-radius: 0 0 20;" text="Log Out" textFill="WHITE" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
+                  <JFXButton buttonType="RAISED" layoutX="10.0" layoutY="82.0" maxWidth="300.0" onAction="#btnLogOut" prefHeight="51.0" prefWidth="246.0" style="-fx-background-color: #FF0000; -fx-background-radius: 0 20 20 0; -fx-border-radius: 0 0 20;" text="Log Out       " textFill="WHITE" GridPane.rowIndex="6" GridPane.valignment="BOTTOM">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
+                     <graphic>
+                        <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" style="-fx-translate-x: -5;">
+                           <image>
+                              <Image url="@asset/icon/switch.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
                   </JFXButton>
                </children>
             </GridPane>
