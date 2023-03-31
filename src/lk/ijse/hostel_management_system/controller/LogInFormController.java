@@ -30,4 +30,8 @@ public class LogInFormController {
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/hostel_management_system/view/HomeForm.fxml"))));
         stage.centerOnScreen();
     }
+
+    public void btnClose(ActionEvent actionEvent) {
+
+    }
 }

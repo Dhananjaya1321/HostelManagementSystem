@@ -13,6 +13,8 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
 <GridPane fx:id="rightPane" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.ManageStudentFormController">
@@ -66,6 +68,14 @@
                      <effect>
                         <InnerShadow color="#00000099" height="5.0" radius="2.0" width="5.0" />
                      </effect>
+                     <defaultColor>
+                        <LinearGradient endX="1.0" endY="1.0">
+                           <stops>
+                              <Stop color="#00bbff" />
+                              <Stop color="#0e3eff" offset="1.0" />
+                           </stops>
+                        </LinearGradient>
+                     </defaultColor>
                   </JFXDatePicker>
                   <JFXButton buttonType="RAISED" onAction="#btnAdd" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #00f312; -fx-border-radius: 10; -fx-background-radius: 10;" text="Add" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <font>
