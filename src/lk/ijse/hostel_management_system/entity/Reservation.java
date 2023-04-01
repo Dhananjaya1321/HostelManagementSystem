@@ -18,8 +18,8 @@ public class Reservation {
     private String res_id;
     private Date date;
     @ManyToOne
-    private String student_id;
+    private Student student;
     @ManyToOne
-    private String room_type_id;
+    private Room room;
     private String status;
 }
