@@ -92,7 +92,7 @@
                         <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <JFXComboBox fx:id="cmbRoomTypeID" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                        <JFXComboBox fx:id="cmbRoomTypeID" onAction="#cmbRoomTypeIDOnAction" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                            <effect>
                               <InnerShadow color="#00000098" height="5.0" radius="2.0" width="5.0" />
                            </effect>

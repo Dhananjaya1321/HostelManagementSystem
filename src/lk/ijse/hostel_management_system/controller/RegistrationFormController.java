@@ -67,7 +67,7 @@ public class RegistrationFormController {
 
     @FXML
     void btnNewStudent(ActionEvent event) throws IOException {
-        URL resource = getClass().getResource("/lk/ijse/hostel_management_system/view/AddCustomerForm.fxml");
+        URL resource = getClass().getResource("/lk/ijse/hostel_management_system/view/AddStudentForm.fxml");
         Parent load = FXMLLoader.load(resource);
         Scene scene = new Scene(load);
         Stage stage = new Stage();

@@ -8,7 +8,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 
-public class AddCustomerFormController {
+public class AddStudentFormController {
 
     @FXML
     private AnchorPane popUpPane;
