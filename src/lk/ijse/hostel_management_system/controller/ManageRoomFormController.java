@@ -4,6 +4,7 @@ import com.jfoenix.controls.JFXComboBox;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
@@ -39,38 +40,52 @@ public class ManageRoomFormController implements Initializable {
 
     @FXML
     void btnAdd(ActionEvent event) {
-       /* id = cmbRoomTypeID.getValue();
+        id = cmbRoomTypeID.getValue();
         type = lblType.getText();
         keyMoney = Double.parseDouble(txtKeyMoney.getText());
         qty = Integer.parseInt(txtRoomQTY.getText());
         roomDTO = new RoomDTO(id, type, keyMoney, qty);
-        boolean b = roomBO.saveRoom(roomDTO);
-        System.out.println(b);*/
+        boolean isAdded = roomBO.saveRoom(roomDTO);
+        Alert alert;
+        if (isAdded) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully added");
+        }else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
 
     }
 
     @FXML
     void btnDelete(ActionEvent event) {
-       /* id = cmbRoomTypeID.getValue();
+        id = cmbRoomTypeID.getValue();
         type = lblType.getText();
         keyMoney = Double.parseDouble(txtKeyMoney.getText());
         qty = Integer.parseInt(txtRoomQTY.getText());
-        roomDTO = new RoomDTO(id, type, keyMoney, qty);*/
+        roomDTO = new RoomDTO(id, type, keyMoney, qty);
+        boolean isDeleted = roomBO.deleteRoom(roomDTO);
+        Alert alert;
+        if (isDeleted) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully deleted");
+        }else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
     }
 
     @FXML
     void btnUpdate(ActionEvent event) {
-        /*id = cmbRoomTypeID.getValue();
+        id = cmbRoomTypeID.getValue();
         type = lblType.getText();
         keyMoney = Double.parseDouble(txtKeyMoney.getText());
         qty = Integer.parseInt(txtRoomQTY.getText());
-        roomDTO = new RoomDTO(id, type, keyMoney, qty);*/
+        roomDTO = new RoomDTO(id, type, keyMoney, qty);
+
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cmbRoomTypeID.getItems().addAll(new String[]{"RM-1324", "RM-5467", "RM-7896", "RM-0093"});
-//        System.out.println("jj");
     }
 
     public void cmbRoomTypeIDOnAction(ActionEvent actionEvent) {
