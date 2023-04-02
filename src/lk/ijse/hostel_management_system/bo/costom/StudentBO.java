@@ -7,4 +7,6 @@ public interface StudentBO extends SupperBO {
     boolean saveStudent(StudentDTO dto);
 
     boolean deleteStudent(StudentDTO dto);
+
+    boolean updateStudent(StudentDTO dto);
 }

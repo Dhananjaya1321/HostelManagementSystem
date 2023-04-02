@@ -105,7 +105,20 @@ public class ManageStudentFormController implements Initializable {
 
     @FXML
     void btnUpdate(ActionEvent event) {
-
+        studentId = txtID.getText();
+        name = txtName.getText();
+        address = txtAddress.getText();
+        contact = txtContact.getText();
+        dob = txtDOB.getValue();
+        gender = cmbGender.getValue();
+        boolean isAdded = studentBO.updateStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
+        Alert alert;
+        if (isAdded) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Update");
+        }else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
     }
 
     @Override
