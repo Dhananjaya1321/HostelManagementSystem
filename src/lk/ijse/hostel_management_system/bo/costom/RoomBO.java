@@ -7,4 +7,6 @@ public interface RoomBO extends SupperBO {
     boolean saveRoom(RoomDTO dto);
 
     boolean deleteRoom(RoomDTO dto);
+
+    boolean updateRoom(RoomDTO dto);
 }

@@ -80,7 +80,14 @@ public class ManageRoomFormController implements Initializable {
         keyMoney = Double.parseDouble(txtKeyMoney.getText());
         qty = Integer.parseInt(txtRoomQTY.getText());
         roomDTO = new RoomDTO(id, type, keyMoney, qty);
-
+        boolean isUpdated = roomBO.updateRoom(roomDTO);
+        Alert alert;
+        if (isUpdated) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully updated");
+        }else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
     }
 
     @Override

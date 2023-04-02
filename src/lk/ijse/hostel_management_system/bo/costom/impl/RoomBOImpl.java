@@ -32,4 +32,15 @@ public class RoomBOImpl implements RoomBO {
                 )
         );
     }
+    @Override
+    public boolean updateRoom(RoomDTO dto) {
+        return roomDAO.update(
+                new Room(
+                        dto.getRoom_type_id(),
+                        dto.getType(),
+                        dto.getKey_money(),
+                        dto.getQty()
+                )
+        );
+    }
 }
