@@ -85,7 +85,7 @@ public class ManageStudentFormController implements Initializable {
         boolean isAdded = studentBO.saveStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
         Alert alert;
         if (isAdded) {
-            table.refresh();
+            table.getItems().add(new StudentTM(studentId, name, address, contact, dob, gender));
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Added");
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
@@ -104,7 +104,8 @@ public class ManageStudentFormController implements Initializable {
         boolean isAdded = studentBO.deleteStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
         Alert alert;
         if (isAdded) {
-            table.refresh();
+            table.getItems().remove(table.getSelectionModel().getSelectedItem());
+            table.getSelectionModel().clearSelection();
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Deleted");
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
@@ -123,32 +124,49 @@ public class ManageStudentFormController implements Initializable {
         boolean isAdded = studentBO.updateStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
         Alert alert;
         if (isAdded) {
-            table.refresh();
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Update");
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
         alert.show();
+        StudentTM selectedCustomer = table.getSelectionModel().getSelectedItem();
+//        selectedCustomer.setStudent_id(studentId);
+        selectedCustomer.setName(name);
+        selectedCustomer.setAddress(address);
+        selectedCustomer.setDob(dob);
+        selectedCustomer.setContact_no(contact);
+        selectedCustomer.setGender(gender);
+        table.refresh();
     }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         cmbGender.getItems().addAll(new String[]{"Male", "Female"});
 
-        colID.setCellValueFactory(new PropertyValueFactory<>("student_id"));
-        colName.setCellValueFactory(new PropertyValueFactory<>("name"));
-        colAddress.setCellValueFactory(new PropertyValueFactory<>("address"));
-        colCuntact.setCellValueFactory(new PropertyValueFactory<>("contact_no"));
-        culDOB.setCellValueFactory(new PropertyValueFactory<>("dob"));
-        colGender.setCellValueFactory(new PropertyValueFactory<>("gender"));
-
+        table.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        table.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+        table.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("address"));
+        table.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("contact_no"));
+        table.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("dob"));
+        table.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
+        table.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
+            if (newValue != null) {
+                txtID.setText(newValue.getStudent_id());
+                txtName.setText(newValue.getName());
+                txtAddress.setText(newValue.getAddress());
+                txtContact.setText(newValue.getContact_no());
+                txtDOB.setValue(newValue.getDob());
+                cmbGender.setValue(newValue.getGender());
+            }
+        });
         loadAll();
     }
 
     private void loadAll() {
+        table.getItems().clear();
         ArrayList<StudentDTO> allStudent = studentBO.getAllStudent();
         for (StudentDTO s:allStudent) {
-            observableList.add(
+            table.getItems().add(
                     new StudentTM(
                             s.getStudent_id(),
                             s.getName(),
@@ -158,7 +176,6 @@ public class ManageStudentFormController implements Initializable {
                             s.getGender()
                     )
             );
-            table.setItems(observableList);
         }
     }
 }
