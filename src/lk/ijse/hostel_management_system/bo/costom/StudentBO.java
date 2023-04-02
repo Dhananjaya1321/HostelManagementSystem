@@ -5,4 +5,6 @@ import lk.ijse.hostel_management_system.dto.StudentDTO;
 
 public interface StudentBO extends SupperBO {
     boolean saveStudent(StudentDTO dto);
+
+    boolean deleteStudent(StudentDTO dto);
 }

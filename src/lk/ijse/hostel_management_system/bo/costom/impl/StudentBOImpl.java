@@ -23,4 +23,17 @@ public class StudentBOImpl implements StudentBO {
                 )
         );
     }
+    @Override
+    public boolean deleteStudent(StudentDTO dto) {
+        return studentDAO.delete(
+                new Student(
+                        dto.getStudent_id(),
+                        dto.getName(),
+                        dto.getAddress(),
+                        dto.getContact_no(),
+                        dto.getDob(),
+                        dto.getGender()
+                )
+        );
+    }
 }

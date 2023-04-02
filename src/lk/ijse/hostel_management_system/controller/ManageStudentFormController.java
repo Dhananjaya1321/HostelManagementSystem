@@ -5,10 +5,7 @@ import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
@@ -64,21 +61,46 @@ public class ManageStudentFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> colGender;
     private StudentBO studentBO= (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
+    private String studentId;
+    private String name;
+    private String address;
+    private String contact;
+    private LocalDate dob;
+    private String gender;
     @FXML
     void btnAdd(ActionEvent event) {
-        String studentId = txtID.getText();
-        String name = txtName.getText();
-        String address = txtAddress.getText();
-        String contact = txtContact.getText();
-        LocalDate dob = txtDOB.getValue();
-        String gender = cmbGender.getValue();
-        studentBO.saveStudent(new StudentDTO(studentId,name,address,contact,dob,gender));
-
+        studentId = txtID.getText();
+        name = txtName.getText();
+        address = txtAddress.getText();
+        contact = txtContact.getText();
+        dob = txtDOB.getValue();
+        gender = cmbGender.getValue();
+        boolean isAdded = studentBO.saveStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
+        Alert alert;
+        if (isAdded) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Added");
+        }else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
     }
 
     @FXML
     void btnDelete(ActionEvent event) {
-
+        studentId = txtID.getText();
+        name = txtName.getText();
+        address = txtAddress.getText();
+        contact = txtContact.getText();
+        dob = txtDOB.getValue();
+        gender = cmbGender.getValue();
+        boolean isAdded = studentBO.deleteStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
+        Alert alert;
+        if (isAdded) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Deleted");
+        }else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
     }
 
     @FXML
