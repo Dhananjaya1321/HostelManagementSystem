@@ -67,7 +67,6 @@ public class LogInFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
         imgView.setVisible(false);
         txtPassword.setVisible(false);
         imgInvsible.setVisible(true);

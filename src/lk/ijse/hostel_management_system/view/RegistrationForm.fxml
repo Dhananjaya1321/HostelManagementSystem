@@ -6,7 +6,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
-<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.effect.InnerShadow?>
 <?import javafx.scene.layout.ColumnConstraints?>
@@ -59,7 +59,6 @@
                   <DropShadow />
                </effect>
                <children>
-                  <TextArea fx:id="txtStatus" maxHeight="35.0" maxWidth="500.0" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
                   <JFXDatePicker fx:id="txtDate" prefHeight="35.0" prefWidth="501.0" style="-fx-border-color: white; -fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
                      <effect>
                         <InnerShadow color="#00000099" height="5.0" radius="2.0" width="5.0" />
@@ -88,7 +87,7 @@
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXComboBox fx:id="cmbRoomTypeID" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                  <JFXComboBox fx:id="cmbRoomTypeID" onAction="#cmbRoomTypeIDOnAction" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
                      <effect>
                         <InnerShadow color="#00000098" height="5.0" radius="2.0" width="5.0" />
                      </effect>
@@ -123,7 +122,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <JFXComboBox fx:id="cmbStudentID" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.valignment="BOTTOM">
+                        <JFXComboBox fx:id="cmbStudentID" prefHeight="37.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.valignment="BOTTOM">
                            <effect>
                               <InnerShadow color="#00000098" height="5.0" radius="2.0" width="5.0" />
                            </effect>
@@ -138,6 +137,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
+                        <TextField fx:id="txtStatus" maxWidth="225.0" prefHeight="36.0" prefWidth="200.0" GridPane.valignment="BOTTOM" />
                      </children>
                   </GridPane>
                   <Label fx:id="lblReservationID" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
@@ -161,6 +161,11 @@
                         <Font name="System Bold" size="15.0" />
                      </font>
                   </Label>
+                  <JFXComboBox fx:id="cmbStatus" layoutX="20.0" layoutY="139.0" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <effect>
+                        <InnerShadow color="#00000098" height="5.0" radius="2.0" width="5.0" />
+                     </effect>
+                  </JFXComboBox>
                </children>
             </GridPane>
          </children>

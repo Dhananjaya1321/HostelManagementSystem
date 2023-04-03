@@ -1,6 +1,7 @@
 package lk.ijse.hostel_management_system.dao.costom.impl;
 
 import lk.ijse.hostel_management_system.dao.costom.RoomDAO;
+import lk.ijse.hostel_management_system.entity.Reservation;
 import lk.ijse.hostel_management_system.entity.Room;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
@@ -80,6 +81,22 @@ public class RoomDAOImpl implements RoomDAO {
             session.close();
             ex.printStackTrace();
             return false;
+        }
+    }
+    @Override
+    public Room get(String room_type_id) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Room room = session.get(Room.class, room_type_id);
+            transaction.commit();
+            session.close();
+            return room;
+        } catch (Exception ex) {
+            transaction.rollback();
+            session.close();
+            ex.printStackTrace();
+            return null;
         }
     }
 }

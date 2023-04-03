@@ -5,34 +5,40 @@ import com.jfoenix.controls.JFXDatePicker;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
-import javafx.scene.control.TextArea;
+import javafx.scene.control.*;
 import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
+import lk.ijse.hostel_management_system.bo.BOFactory;
+import lk.ijse.hostel_management_system.bo.BOType;
+import lk.ijse.hostel_management_system.bo.costom.ReservationBO;
+import lk.ijse.hostel_management_system.dto.RoomDTO;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ResourceBundle;
 
-public class RegistrationFormController {
+public class RegistrationFormController implements Initializable {
 
+    @FXML
+    private TextField txtStatus;
+    @FXML
+    private Label lblAvailableRoomQTY;
+    @FXML
+    private JFXComboBox<String> cmbStatus;
     @FXML
     private GridPane rightPane;
-
-    @FXML
-    private TextArea txtStatus;
 
     @FXML
     private JFXDatePicker txtDate;
 
     @FXML
-    private JFXComboBox<?> cmbRoomTypeID;
+    private JFXComboBox<String> cmbRoomTypeID;
 
     @FXML
-    private JFXComboBox<?> cmbStudentID;
+    private JFXComboBox<String> cmbStudentID;
 
     @FXML
     private Label lblReservationID;
@@ -54,6 +60,7 @@ public class RegistrationFormController {
 
     @FXML
     private TableColumn<?, ?> colStatus;
+    private ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBOType(BOType.RESERVATION);
 
     @FXML
     void btnAdd(ActionEvent event) {
@@ -81,4 +88,18 @@ public class RegistrationFormController {
 
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        cmbRoomTypeID.getItems().addAll(new String[]{"RM-1324", "RM-5467", "RM-7896", "RM-0093"});
+        cmbStatus.getItems().addAll(new String[]{"Paid", "Pending payment"});
+    }
+
+    public void cmbRoomTypeIDOnAction(ActionEvent actionEvent) {
+        String value = cmbRoomTypeID.getValue();
+        RoomDTO room = reservationBO.getRoom(value);
+        int notAvailableRoomCount = reservationBO.getNotAvailableRoomCount(value);
+//        System.out.println(notAvailableRoomCount);
+//        System.out.println(room.getQty()-notAvailableRoomCount);
+        lblAvailableRoomQTY.setText(String.valueOf(room.getQty()-notAvailableRoomCount));
+    }
 }
