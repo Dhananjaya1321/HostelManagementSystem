@@ -13,10 +13,10 @@
 <?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="pane" prefHeight="494.0" prefWidth="430.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #04abe6, #0095e6, #327ddf, #5e60ce);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.LogInFormController">
+<AnchorPane fx:id="pane" prefHeight="494.0" prefWidth="408.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #04abe6, #0095e6, #327ddf, #5e60ce); -fx-background-radius: 10; -fx-border-radius: 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.hostel_management_system.controller.LogInFormController">
    <children>
       <AnchorPane layoutX="271.0" layoutY="27.0" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 100;" />
-      <AnchorPane layoutX="54.0" layoutY="356.0" prefHeight="70.0" prefWidth="70.0" rotate="45.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 100;">
+      <AnchorPane layoutX="37.0" layoutY="406.0" prefHeight="70.0" prefWidth="70.0" rotate="45.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 100;">
          <effect>
             <DropShadow color="#0000005a" />
          </effect></AnchorPane>
@@ -24,24 +24,10 @@
          <effect>
             <DropShadow color="#0000004d" spread="0.21" />
          </effect></AnchorPane>
-      <Label layoutX="77.0" layoutY="24.0" text="Welcome Here">
-         <font>
-            <Font name="System Bold" size="40.0" />
-         </font>
-         <textFill>
-            <LinearGradient endX="1.0" endY="1.0">
-               <stops>
-                  <Stop color="#1e471e" />
-                  <Stop color="WHITE" offset="0.007662835249042145" />
-                  <Stop color="WHITE" offset="1.0" />
-               </stops>
-            </LinearGradient>
-         </textFill>
-      </Label>
-      <AnchorPane layoutX="306.0" layoutY="405.0" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 100;" />
-      <AnchorPane layoutX="345.0" layoutY="378.0" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 100;" />
+      <AnchorPane layoutX="323.0" layoutY="440.0" prefHeight="45.0" prefWidth="45.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 100;" />
+      <AnchorPane layoutX="329.0" layoutY="391.0" prefHeight="33.0" prefWidth="33.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 100;" />
       <AnchorPane layoutX="361.0" layoutY="418.0" prefHeight="23.0" prefWidth="23.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 100;" />
-      <AnchorPane layoutX="81.0" layoutY="98.0" prefHeight="315.0" prefWidth="269.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 10; -fx-border-radius: 10;">
+      <AnchorPane layoutX="72.0" layoutY="114.0" prefHeight="347.0" prefWidth="269.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd); -fx-background-radius: 10; -fx-border-radius: 10;">
          <effect>
             <DropShadow />
          </effect>
@@ -54,7 +40,7 @@
                   <DropShadow />
                </effect>
             </JFXPasswordField>
-            <JFXTextField fx:id="txtPassword" focusColor="#80ffdb" labelFloat="true" layoutX="23.0" layoutY="142.0" prefHeight="41.0" prefWidth="226.0" promptText="Password" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;" unFocusColor="TRANSPARENT">
+            <JFXTextField fx:id="txtPassword" focusColor="#80ffdb" labelFloat="true" layoutX="23.0" layoutY="142.0" prefHeight="41.0" prefWidth="226.0" promptText="Password" style="-fx-border-color: white; -fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;" unFocusColor="#ff0e0e00">
                <font>
                   <Font size="18.0" />
                </font>
@@ -91,7 +77,7 @@
             </AnchorPane>
          </children>
       </AnchorPane>
-      <Label layoutX="224.0" layoutY="406.0" prefWidth="59.0" text="D">
+      <Label layoutX="226.0" layoutY="13.0" prefWidth="59.0" text="D">
          <font>
             <Font name="Georgia" size="80.0" />
          </font>
@@ -105,7 +91,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutX="188.0" layoutY="417.0" text="24">
+      <Label layoutX="190.0" layoutY="24.0" text="24">
          <font>
             <Font name="System Bold" size="35.0" />
          </font>
@@ -119,7 +105,7 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <Label layoutX="157.0" layoutY="446.0" text="Hostel">
+      <Label layoutX="159.0" layoutY="53.0" text="Hostel">
          <font>
             <Font name="System Bold" size="25.0" />
          </font>
@@ -133,8 +119,8 @@
             </LinearGradient>
          </textFill>
       </Label>
-      <AnchorPane layoutX="154.0" layoutY="475.0" prefHeight="5.0" prefWidth="82.0" style="-fx-background-color: white; -fx-background-radius: 100;" />
-      <Button layoutX="388.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnCloseOnAction" style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8;">
+      <AnchorPane layoutX="156.0" layoutY="82.0" prefHeight="5.0" prefWidth="82.0" style="-fx-background-color: white; -fx-background-radius: 100;" />
+      <Button layoutX="367.0" layoutY="7.0" mnemonicParsing="false" onAction="#btnCloseOnAction" prefHeight="33.0" prefWidth="34.0" style="-fx-background-color: white; -fx-border-radius: 8; -fx-background-radius: 8;">
          <graphic>
             <ImageView fitHeight="18.0" fitWidth="18.0" pickOnBounds="true" preserveRatio="true">
                <image>

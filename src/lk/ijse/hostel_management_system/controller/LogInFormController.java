@@ -5,15 +5,20 @@ import com.jfoenix.controls.JFXTextField;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 
-public class LogInFormController {
+public class LogInFormController implements Initializable {
 
     public ImageView imgView;
     public ImageView imgInvsible;
@@ -35,19 +40,37 @@ public class LogInFormController {
         stage.centerOnScreen();
     }
 
-    public void btnClose(ActionEvent actionEvent) {
-
-    }
 
     public void btnCloseOnAction(ActionEvent actionEvent) {
-
+        Node node = (Node) actionEvent.getSource();
+        Stage stage = (Stage) node.getScene().getWindow();
+        stage.close();
     }
 
     public void imgViewOnAction(MouseEvent mouseEvent) {
-
+        imgView.setVisible(false);
+        txtPassword.setVisible(false);
+        imgInvsible.setVisible(true);
+        pswdPassword.setVisible(true);
+        pswdPassword.setText(txtPassword.getText());
+        pswdPassword.requestFocus();
     }
 
     public void imgInvisibleOnAction(MouseEvent mouseEvent) {
+        imgView.setVisible(true);
+        txtPassword.setVisible(true);
+        imgInvsible.setVisible(false);
+        pswdPassword.setVisible(false);
+        txtPassword.setText(pswdPassword.getText());
+        txtPassword.requestFocus();
+    }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+
+        imgView.setVisible(false);
+        txtPassword.setVisible(false);
+        imgInvsible.setVisible(true);
+        pswdPassword.setVisible(true);
     }
 }
