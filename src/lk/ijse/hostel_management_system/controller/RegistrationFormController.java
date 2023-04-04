@@ -23,7 +23,7 @@ import java.util.ResourceBundle;
 public class RegistrationFormController implements Initializable {
 
     @FXML
-    private TextField txtStatus;
+    private TextField txtStudentId;
     @FXML
     private Label lblAvailableRoomQTY;
     @FXML
@@ -61,6 +61,7 @@ public class RegistrationFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> colStatus;
     private ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBOType(BOType.RESERVATION);
+
 
     @FXML
     void btnAdd(ActionEvent event) {
@@ -100,6 +101,7 @@ public class RegistrationFormController implements Initializable {
         int notAvailableRoomCount = reservationBO.getNotAvailableRoomCount(value);
 //        System.out.println(notAvailableRoomCount);
 //        System.out.println(room.getQty()-notAvailableRoomCount);
-        lblAvailableRoomQTY.setText(String.valueOf(room.getQty()-notAvailableRoomCount));
+        lblAvailableRoomQTY.setText(String.valueOf(room.getQty() - notAvailableRoomCount));
     }
+
 }

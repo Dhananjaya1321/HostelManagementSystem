@@ -137,7 +137,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtStatus" maxWidth="225.0" prefHeight="36.0" prefWidth="200.0" GridPane.valignment="BOTTOM" />
+                        <TextField fx:id="txtStudentId" maxWidth="225.0" prefHeight="36.0" prefWidth="200.0" GridPane.valignment="BOTTOM" />
                      </children>
                   </GridPane>
                   <Label fx:id="lblReservationID" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
