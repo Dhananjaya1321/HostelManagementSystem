@@ -14,10 +14,13 @@ import javafx.stage.Stage;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
 import lk.ijse.hostel_management_system.bo.costom.ReservationBO;
+import lk.ijse.hostel_management_system.bo.costom.StudentBO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
+import lk.ijse.hostel_management_system.dto.StudentDTO;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class RegistrationFormController implements Initializable {
@@ -61,6 +64,7 @@ public class RegistrationFormController implements Initializable {
     @FXML
     private TableColumn<?, ?> colStatus;
     private ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBOType(BOType.RESERVATION);
+    private StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
 
 
     @FXML
@@ -93,15 +97,23 @@ public class RegistrationFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         cmbRoomTypeID.getItems().addAll(new String[]{"RM-1324", "RM-5467", "RM-7896", "RM-0093"});
         cmbStatus.getItems().addAll(new String[]{"Paid", "Pending payment"});
+
+        ArrayList<StudentDTO> allStudent = studentBO.getAllStudent();
+
+        for (StudentDTO s: allStudent) {
+            cmbStudentID.getItems().addAll(s.getStudent_id());
+        }
+
     }
 
     public void cmbRoomTypeIDOnAction(ActionEvent actionEvent) {
         String value = cmbRoomTypeID.getValue();
         RoomDTO room = reservationBO.getRoom(value);
         int notAvailableRoomCount = reservationBO.getNotAvailableRoomCount(value);
-//        System.out.println(notAvailableRoomCount);
-//        System.out.println(room.getQty()-notAvailableRoomCount);
         lblAvailableRoomQTY.setText(String.valueOf(room.getQty() - notAvailableRoomCount));
     }
 
+    public void cmbStudentID(ActionEvent actionEvent) {
+        txtStudentId.setText(cmbStudentID.getValue());
+    }
 }
