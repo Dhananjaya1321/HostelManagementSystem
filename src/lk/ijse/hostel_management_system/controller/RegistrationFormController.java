@@ -80,6 +80,7 @@ public class RegistrationFormController implements Initializable {
         Alert alert;
         if (isAdded) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
+            lblReservationID.setText(generateNewId());
         }else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
@@ -117,7 +118,7 @@ public class RegistrationFormController implements Initializable {
         for (StudentDTO s : allStudent) {
             cmbStudentID.getItems().addAll(s.getStudent_id());
         }
-
+        lblReservationID.setText(generateNewId());
     }
 
     public void cmbRoomTypeIDOnAction(ActionEvent actionEvent) {
@@ -129,5 +130,16 @@ public class RegistrationFormController implements Initializable {
 
     public void cmbStudentID(ActionEvent actionEvent) {
         txtStudentId.setText(cmbStudentID.getValue());
+    }
+
+    public String generateNewId(){
+        String oldId = reservationBO.getLastId();
+        System.out.println(oldId);
+        if (oldId!=null) {
+            int newCustomerId = Integer.parseInt(oldId.replace("R00-", "")) + 1;
+            return String.format("R00-%03d", newCustomerId);
+        } else {
+            return "R00-001";
+        }
     }
 }

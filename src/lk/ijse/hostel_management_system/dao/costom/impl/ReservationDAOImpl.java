@@ -2,31 +2,28 @@ package lk.ijse.hostel_management_system.dao.costom.impl;
 
 import lk.ijse.hostel_management_system.dao.costom.ReservationDAO;
 import lk.ijse.hostel_management_system.entity.Reservation;
-import lk.ijse.hostel_management_system.entity.Room;
-import lk.ijse.hostel_management_system.entity.Student;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
-import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean save(Reservation entity) {
-        Session session=FactoryConfiguration.getInstance().getSession();
-        Transaction transaction= session.beginTransaction();
+        Session session= FactoryConfiguration.getInstance().getSession();
+        Transaction transaction=session.beginTransaction();
         try {
             session.save(entity);
-            session.close();
             transaction.commit();
+            session.close();
             return true;
-        }catch (Exception e){
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return false;
         }
     }
@@ -55,7 +52,21 @@ public class ReservationDAOImpl implements ReservationDAO {
         } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return 0;
         }
+    }
+
+    @Override
+    public String getLastId() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        String sqlQuery = "SELECT r.res_id FROM Reservation AS r ORDER BY res_id DESC";
+        Query query = session.createQuery(sqlQuery);
+        List list = query.list();
+        session.close();
+        if (list.size() > 0) {
+            return (String) list.get(0);
+        }
+        return null;
     }
 }

@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
-import java.util.Date;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,7 +16,7 @@ import java.util.Date;
 public class Reservation {
     @Id
     private String res_id;
-    private Date date;
+    private LocalDate date;
     @ManyToOne
     private Student student;
     @ManyToOne

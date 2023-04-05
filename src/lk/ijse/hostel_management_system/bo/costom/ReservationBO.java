@@ -10,4 +10,6 @@ public interface ReservationBO extends SupperBO {
     int getNotAvailableRoomCount(String room_type_id);
 
     boolean saveRegistration(ReservationDTO dto);
+
+    String getLastId();
 }

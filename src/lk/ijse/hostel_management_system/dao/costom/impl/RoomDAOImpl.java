@@ -28,9 +28,10 @@ public class RoomDAOImpl implements RoomDAO {
             transaction.commit();
             session.close();
             return true;
-        } catch (Exception ex) {
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return false;
         }
     }
@@ -50,9 +51,10 @@ public class RoomDAOImpl implements RoomDAO {
             transaction.commit();
             session.close();
             return isDeleted;
-        } catch (Exception ex) {
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return false;
         }
     }
@@ -70,9 +72,10 @@ public class RoomDAOImpl implements RoomDAO {
             transaction.commit();
             session.close();
             return isDeleted;
-        } catch (Exception ex) {
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return false;
         }
     }
@@ -85,9 +88,10 @@ public class RoomDAOImpl implements RoomDAO {
             transaction.commit();
             session.close();
             return room;
-        } catch (Exception ex) {
+        } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return null;
         }
     }

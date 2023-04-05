@@ -25,6 +25,7 @@ public class StudentDAOImpl implements StudentDAO {
         } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return false;
         }
     }
@@ -41,6 +42,7 @@ public class StudentDAOImpl implements StudentDAO {
         } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return false;
         }
     }
@@ -57,6 +59,7 @@ public class StudentDAOImpl implements StudentDAO {
         } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return false;
         }
     }
@@ -74,8 +77,11 @@ public class StudentDAOImpl implements StudentDAO {
         } catch (Exception e) {
             transaction.rollback();
             session.close();
+            e.printStackTrace();
             return null;
         }
     }
+
+
 
 }
