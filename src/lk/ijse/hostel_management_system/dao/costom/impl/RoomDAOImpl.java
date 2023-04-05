@@ -1,15 +1,11 @@
 package lk.ijse.hostel_management_system.dao.costom.impl;
 
 import lk.ijse.hostel_management_system.dao.costom.RoomDAO;
-import lk.ijse.hostel_management_system.entity.Reservation;
 import lk.ijse.hostel_management_system.entity.Room;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
-import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.query.Query;
-
-import java.io.Serializable;
 
 public class RoomDAOImpl implements RoomDAO {
 
@@ -35,7 +31,6 @@ public class RoomDAOImpl implements RoomDAO {
         } catch (Exception ex) {
             transaction.rollback();
             session.close();
-            ex.printStackTrace();
             return false;
         }
     }
@@ -58,7 +53,6 @@ public class RoomDAOImpl implements RoomDAO {
         } catch (Exception ex) {
             transaction.rollback();
             session.close();
-            ex.printStackTrace();
             return false;
         }
     }
@@ -79,7 +73,6 @@ public class RoomDAOImpl implements RoomDAO {
         } catch (Exception ex) {
             transaction.rollback();
             session.close();
-            ex.printStackTrace();
             return false;
         }
     }
@@ -95,7 +88,6 @@ public class RoomDAOImpl implements RoomDAO {
         } catch (Exception ex) {
             transaction.rollback();
             session.close();
-            ex.printStackTrace();
             return null;
         }
     }

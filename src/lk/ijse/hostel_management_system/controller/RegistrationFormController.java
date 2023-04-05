@@ -15,11 +15,13 @@ import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
 import lk.ijse.hostel_management_system.bo.costom.ReservationBO;
 import lk.ijse.hostel_management_system.bo.costom.StudentBO;
+import lk.ijse.hostel_management_system.dto.ReservationDTO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
 import lk.ijse.hostel_management_system.dto.StudentDTO;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
@@ -69,7 +71,19 @@ public class RegistrationFormController implements Initializable {
 
     @FXML
     void btnAdd(ActionEvent event) {
-
+        String res_id = lblReservationID.getText();
+        String student_id = txtStudentId.getText();
+        LocalDate date = txtDate.getValue();
+        String status = cmbStatus.getValue();
+        String room_id = cmbRoomTypeID.getValue();
+        boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        Alert alert;
+        if (isAdded) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
+        }else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
     }
 
     @FXML
@@ -100,7 +114,7 @@ public class RegistrationFormController implements Initializable {
 
         ArrayList<StudentDTO> allStudent = studentBO.getAllStudent();
 
-        for (StudentDTO s: allStudent) {
+        for (StudentDTO s : allStudent) {
             cmbStudentID.getItems().addAll(s.getStudent_id());
         }
 

@@ -17,7 +17,18 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean save(Reservation entity) {
-        return false;
+        Session session=FactoryConfiguration.getInstance().getSession();
+        Transaction transaction= session.beginTransaction();
+        try {
+            session.save(entity);
+            session.close();
+            transaction.commit();
+            return true;
+        }catch (Exception e){
+            transaction.rollback();
+            session.close();
+            return false;
+        }
     }
 
     @Override
@@ -44,7 +55,6 @@ public class ReservationDAOImpl implements ReservationDAO {
         } catch (Exception e) {
             transaction.rollback();
             session.close();
-            e.printStackTrace();
             return 0;
         }
     }
