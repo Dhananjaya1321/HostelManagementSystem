@@ -7,6 +7,8 @@ import lk.ijse.hostel_management_system.dao.costom.RoomDAO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
 import lk.ijse.hostel_management_system.entity.Room;
 
+import java.util.ArrayList;
+
 public class RoomBOImpl implements RoomBO {
     private RoomDAO roomDAO = (RoomDAO) DAOFactory.getInstance().getDAOType(DAOType.ROOM);
 
@@ -42,5 +44,21 @@ public class RoomBOImpl implements RoomBO {
                         dto.getQty()
                 )
         );
+    }
+    @Override
+    public ArrayList<RoomDTO> loadAll() {
+        ArrayList<Room> rooms = roomDAO.getAll();
+        ArrayList<RoomDTO> roomDTOS=new ArrayList<>();
+        for (Room r:rooms) {
+            roomDTOS.add(
+                    new RoomDTO(
+                            r.getRoom_type_id(),
+                            r.getType(),
+                            r.getKey_money(),
+                            r.getQty()
+                    )
+            );
+        }
+        return roomDTOS;
     }
 }
