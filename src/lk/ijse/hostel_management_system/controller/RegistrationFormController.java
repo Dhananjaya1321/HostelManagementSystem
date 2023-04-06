@@ -69,8 +69,8 @@ public class RegistrationFormController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colStatus;
-    private ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBOType(BOType.RESERVATION);
-    private StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
+    private final ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBOType(BOType.RESERVATION);
+    private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
 
     private String res_id;
     private String student_id;
@@ -127,7 +127,19 @@ public class RegistrationFormController implements Initializable {
 
     @FXML
     void btnUpdate(ActionEvent event) {
-
+        res_id = lblReservationID.getText();
+        student_id = txtStudentId.getText();
+        date = txtDate.getValue();
+        status = cmbStatus.getValue();
+        room_id = cmbRoomTypeID.getValue();
+        boolean isUpdated = reservationBO.updateRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        Alert alert;
+        if (isUpdated) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully updated");
+        } else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
     }
 
     @Override

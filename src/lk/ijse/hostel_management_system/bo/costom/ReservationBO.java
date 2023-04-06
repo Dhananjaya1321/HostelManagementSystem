@@ -15,6 +15,8 @@ public interface ReservationBO extends SupperBO {
 
     boolean deleteRegistration(ReservationDTO dto);
 
+    boolean updateRegistration(ReservationDTO dto);
+
     ArrayList<ReservationDTO> getAll();
 
     String getLastId();
