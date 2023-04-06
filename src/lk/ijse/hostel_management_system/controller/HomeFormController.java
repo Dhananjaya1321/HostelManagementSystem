@@ -78,4 +78,8 @@ public class HomeFormController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         setPane("DashboardForm.fxml");
     }
+
+    public void btnPaymentDetails(ActionEvent actionEvent) {
+        setPane("");
+    }
 }
