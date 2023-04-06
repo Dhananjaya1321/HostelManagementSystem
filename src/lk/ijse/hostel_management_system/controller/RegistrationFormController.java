@@ -68,20 +68,25 @@ public class RegistrationFormController implements Initializable {
     private ReservationBO reservationBO = (ReservationBO) BOFactory.getInstance().getBOType(BOType.RESERVATION);
     private StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
 
+    String res_id;
+    String student_id;
+    LocalDate date;
+    String status;
+    String room_id;
 
     @FXML
     void btnAdd(ActionEvent event) {
-        String res_id = lblReservationID.getText();
-        String student_id = txtStudentId.getText();
-        LocalDate date = txtDate.getValue();
-        String status = cmbStatus.getValue();
-        String room_id = cmbRoomTypeID.getValue();
+        res_id = lblReservationID.getText();
+        student_id = txtStudentId.getText();
+        date = txtDate.getValue();
+        status = cmbStatus.getValue();
+        room_id = cmbRoomTypeID.getValue();
         boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
         Alert alert;
         if (isAdded) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
             lblReservationID.setText(generateNewId());
-        }else {
+        } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
         alert.show();
@@ -89,7 +94,20 @@ public class RegistrationFormController implements Initializable {
 
     @FXML
     void btnDelete(ActionEvent event) {
-
+        res_id = lblReservationID.getText();
+        student_id = txtStudentId.getText();
+        date = txtDate.getValue();
+        status = cmbStatus.getValue();
+        room_id = cmbRoomTypeID.getValue();
+        boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        Alert alert;
+        if (isDeleted) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully deleted");
+            lblReservationID.setText(generateNewId());
+        } else {
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
+        }
+        alert.show();
     }
 
     @FXML
@@ -132,10 +150,10 @@ public class RegistrationFormController implements Initializable {
         txtStudentId.setText(cmbStudentID.getValue());
     }
 
-    public String generateNewId(){
+    public String generateNewId() {
         String oldId = reservationBO.getLastId();
         System.out.println(oldId);
-        if (oldId!=null) {
+        if (oldId != null) {
             int newCustomerId = Integer.parseInt(oldId.replace("R00-", "")) + 1;
             return String.format("R00-%03d", newCustomerId);
         } else {

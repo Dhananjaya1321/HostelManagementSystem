@@ -51,6 +51,23 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
+    public boolean deleteRegistration(ReservationDTO dto) {
+        Student student=new Student();
+        student.setStudent_id(dto.getStudent_id());
+        Room room=new Room();
+        room.setRoom_type_id(dto.getRoom_type_id());
+        return reservationDAO.delete(
+                new Reservation(
+                        dto.getRes_id(),
+                        dto.getDate(),
+                        student,
+                        room,
+                        dto.getStatus()
+                )
+        );
+    }
+
+    @Override
     public String getLastId() {
         return reservationDAO.getLastId();
     }
