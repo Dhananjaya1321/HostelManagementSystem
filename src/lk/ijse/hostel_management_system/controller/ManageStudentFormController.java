@@ -2,8 +2,6 @@ package lk.ijse.hostel_management_system.controller;
 
 import com.jfoenix.controls.JFXComboBox;
 import com.jfoenix.controls.JFXDatePicker;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -12,9 +10,8 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
-import lk.ijse.hostel_management_system.bo.costom.StudentBO;
+import lk.ijse.hostel_management_system.bo.custom.StudentBO;
 import lk.ijse.hostel_management_system.dto.StudentDTO;
-import lk.ijse.hostel_management_system.entity.Student;
 import lk.ijse.hostel_management_system.view.tm.StudentTM;
 
 import java.net.URL;
@@ -65,7 +62,6 @@ public class ManageStudentFormController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colGender;
-    private final ObservableList<StudentTM> observableList = FXCollections.observableArrayList();
     private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
     private String studentId;
     private String name;

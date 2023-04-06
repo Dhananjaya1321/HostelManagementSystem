@@ -80,6 +80,6 @@ public class HomeFormController implements Initializable {
     }
 
     public void btnPaymentDetails(ActionEvent actionEvent) {
-        setPane("");
+        setPane("PaymentDetailsForm.fxml");
     }
 }

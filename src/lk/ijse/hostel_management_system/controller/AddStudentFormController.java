@@ -11,7 +11,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
-import lk.ijse.hostel_management_system.bo.costom.AddUserBO;
+import lk.ijse.hostel_management_system.bo.custom.AddUserBO;
 import lk.ijse.hostel_management_system.dto.StudentDTO;
 
 import java.net.URL;

@@ -11,7 +11,7 @@ import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
-import lk.ijse.hostel_management_system.bo.costom.RoomBO;
+import lk.ijse.hostel_management_system.bo.custom.RoomBO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
 
 import java.net.URL;

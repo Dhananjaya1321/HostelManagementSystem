@@ -8,7 +8,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.GridPane;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
-import lk.ijse.hostel_management_system.bo.costom.SettingBO;
+import lk.ijse.hostel_management_system.bo.custom.SettingBO;
 import lk.ijse.hostel_management_system.dto.UserDTO;
 
 public class SettingFormController {

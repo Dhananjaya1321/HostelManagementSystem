@@ -14,14 +14,12 @@ import javafx.scene.layout.GridPane;
 import javafx.stage.Stage;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
-import lk.ijse.hostel_management_system.bo.costom.ReservationBO;
-import lk.ijse.hostel_management_system.bo.costom.StudentBO;
-import lk.ijse.hostel_management_system.dao.costom.ReservationDAO;
+import lk.ijse.hostel_management_system.bo.custom.ReservationBO;
+import lk.ijse.hostel_management_system.bo.custom.StudentBO;
 import lk.ijse.hostel_management_system.dto.ReservationDTO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
 import lk.ijse.hostel_management_system.dto.StudentDTO;
 import lk.ijse.hostel_management_system.view.tm.ReservationTM;
-import lk.ijse.hostel_management_system.view.tm.StudentTM;
 
 import java.io.IOException;
 import java.net.URL;

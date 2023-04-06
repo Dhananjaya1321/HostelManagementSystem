@@ -1,9 +1,9 @@
-package lk.ijse.hostel_management_system.bo.costom.impl;
+package lk.ijse.hostel_management_system.bo.custom.impl;
 
-import lk.ijse.hostel_management_system.bo.costom.StudentBO;
+import lk.ijse.hostel_management_system.bo.custom.StudentBO;
 import lk.ijse.hostel_management_system.dao.DAOFactory;
 import lk.ijse.hostel_management_system.dao.DAOType;
-import lk.ijse.hostel_management_system.dao.costom.StudentDAO;
+import lk.ijse.hostel_management_system.dao.custom.StudentDAO;
 import lk.ijse.hostel_management_system.dto.StudentDTO;
 import lk.ijse.hostel_management_system.entity.Student;
 

@@ -1,6 +1,6 @@
 package lk.ijse.hostel_management_system.bo;
 
-import lk.ijse.hostel_management_system.bo.costom.impl.*;
+import lk.ijse.hostel_management_system.bo.custom.impl.*;
 
 public class BOFactory {
     private static BOFactory boFactory;

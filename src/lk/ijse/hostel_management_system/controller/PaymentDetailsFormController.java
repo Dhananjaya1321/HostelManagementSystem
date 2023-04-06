@@ -1,12 +1,23 @@
 package lk.ijse.hostel_management_system.controller;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
+import lk.ijse.hostel_management_system.bo.BOFactory;
+import lk.ijse.hostel_management_system.bo.BOType;
+import lk.ijse.hostel_management_system.bo.custom.StudentBO;
+import lk.ijse.hostel_management_system.dto.StudentDTO;
+import lk.ijse.hostel_management_system.view.tm.StudentTM;
 
-public class PaymentDetailsFormController {
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.ResourceBundle;
+
+public class PaymentDetailsFormController implements Initializable {
 
     @FXML
     private GridPane rightPane;
@@ -15,7 +26,7 @@ public class PaymentDetailsFormController {
     private TextField txtSearch;
 
     @FXML
-    private TableView<?> table;
+    private TableView<StudentTM> table;
 
     @FXML
     private TableColumn<?, ?> colID;
@@ -34,5 +45,20 @@ public class PaymentDetailsFormController {
 
     @FXML
     private TableColumn<?, ?> colGender;
+    private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        table.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        table.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("name"));
+        table.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("address"));
+        table.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("contact_no"));
+        table.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("dob"));
+        table.getColumns().get(5).setCellValueFactory(new PropertyValueFactory<>("gender"));
+        loadAll();
+    }
+
+    private void loadAll() {
+
+    }
 }
