@@ -7,6 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
@@ -159,5 +160,33 @@ public class ManageRoomFormController implements Initializable {
                     break;
             }
         }
+    }
+
+    public void RM_0093OnAction(MouseEvent mouseEvent) {
+        cmbRoomTypeID.setValue("RM_0093");
+        lblType.setText("AC / Food");
+        txtKeyMoney.setText(lblKeyMoneyRM_0093.getText());
+        txtRoomQTY.setText(lblQTYRM_0093.getText());
+    }
+
+    public void RM_1324OnAction(MouseEvent mouseEvent) {
+        cmbRoomTypeID.setValue("RM_1324");
+        lblType.setText("Non-AC");
+        txtKeyMoney.setText(lblKeyMoneyRM_1324.getText());
+        txtRoomQTY.setText(lblQTYRM_1324.getText());
+    }
+
+    public void RM_5467OnAction(MouseEvent mouseEvent) {
+        cmbRoomTypeID.setValue("RM_5467");
+        lblType.setText("Non-AC / Food");
+        txtKeyMoney.setText(lblKeyMoneyRM_5467.getText());
+        txtRoomQTY.setText(lblQTYRM_54667.getText());
+    }
+
+    public void RM_7896OnAction(MouseEvent mouseEvent) {
+        cmbRoomTypeID.setValue("RM_7896");
+        lblType.setText("AC");
+        txtKeyMoney.setText(lblKeyMoneyRM_7896.getText());
+        txtRoomQTY.setText(lblQTYRM_7896.getText());
     }
 }

@@ -211,7 +211,7 @@
                         <DropShadow color="#000000f6" height="15.0" radius="3.25" width="0.0" />
                      </effect>
                   </Label>
-                  <Label fx:id="lblKeyMoneyRM_1324" contentDisplay="CENTER" layoutX="135.0" layoutY="70.0" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="2">
+                  <Label fx:id="lblKeyMoneyRM_1324" contentDisplay="CENTER" layoutX="135.0" layoutY="70.0" maxWidth="500.0" onMouseClicked="#RM_1324OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -219,7 +219,7 @@
                         <DropShadow radius="4.75" width="0.0" />
                      </effect>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="135.0" layoutY="70.0" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" text="   Non-AC / Food " textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                  <Label contentDisplay="CENTER" layoutX="135.0" layoutY="70.0" maxWidth="500.0" onMouseClicked="#RM_5467OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" text="   Non-AC / Food " textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -227,7 +227,7 @@
                         <DropShadow radius="4.75" width="0.0" />
                      </effect>
                   </Label>
-                  <Label fx:id="lblKeyMoneyRM_5467" contentDisplay="CENTER" layoutX="260.0" layoutY="70.0" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="4">
+                  <Label fx:id="lblKeyMoneyRM_5467" contentDisplay="CENTER" layoutX="260.0" layoutY="70.0" maxWidth="500.0" onMouseClicked="#RM_5467OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="4">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -235,7 +235,7 @@
                         <DropShadow radius="4.75" width="0.0" />
                      </effect>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="135.0" layoutY="66.0" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" text="   AC " textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="6">
+                  <Label contentDisplay="CENTER" layoutX="135.0" layoutY="66.0" maxWidth="500.0" onMouseClicked="#RM_7896OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" text="   AC " textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="6">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -243,7 +243,7 @@
                         <DropShadow radius="4.75" width="0.0" />
                      </effect>
                   </Label>
-                  <Label fx:id="lblKeyMoneyRM_7896" contentDisplay="CENTER" layoutX="135.0" layoutY="166.0" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="6">
+                  <Label fx:id="lblKeyMoneyRM_7896" contentDisplay="CENTER" layoutX="135.0" layoutY="166.0" maxWidth="500.0" onMouseClicked="#RM_7896OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="6">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -251,7 +251,7 @@
                         <DropShadow radius="4.75" width="0.0" />
                      </effect>
                   </Label>
-                  <Label contentDisplay="CENTER" layoutX="135.0" layoutY="231.0" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" text="   AC / Food" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="8">
+                  <Label contentDisplay="CENTER" layoutX="135.0" layoutY="231.0" maxWidth="500.0" onMouseClicked="#RM_0093OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" text="   AC / Food" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="8">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -259,7 +259,7 @@
                         <DropShadow radius="4.75" width="0.0" />
                      </effect>
                   </Label>
-                  <Label fx:id="lblKeyMoneyRM_0093" contentDisplay="CENTER" layoutX="135.0" layoutY="231.0" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="8">
+                  <Label fx:id="lblKeyMoneyRM_0093" contentDisplay="CENTER" layoutX="135.0" layoutY="231.0" maxWidth="500.0" onMouseClicked="#RM_0093OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="3" GridPane.rowIndex="8">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -276,7 +276,7 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Label contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 10 0 0 10;" text="   RM-1324" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_1324OnAction" prefHeight="100.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 10 0 0 10;" text="   RM-1324" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -286,7 +286,7 @@
                         </Label>
                      </children>
                   </GridPane>
-                  <Label contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" text="   Non-AC" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="2">
+                  <Label contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_1324OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);;" text="   Non-AC" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="2" GridPane.rowIndex="2">
                      <font>
                         <Font name="System Bold" size="15.0" />
                      </font>
@@ -303,7 +303,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 10 0 0 10;" text="   RM-5467" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_5467OnAction" prefHeight="100.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 10 0 0 10;" text="   RM-5467" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -322,7 +322,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 10 0 0 10;" text="   RM-7896" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_7896OnAction" prefHeight="100.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 10 0 0 10;" text="   RM-7896" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -341,7 +341,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 10 0 0 10;" text="   RM-0093" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_0093OnAction" prefHeight="100.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 10 0 0 10;" text="   RM-0093" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -361,7 +361,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label fx:id="lblQTYRM_1324" contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 0 10 10 0;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1">
+                        <Label fx:id="lblQTYRM_1324" contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_1324OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 0 10 10 0;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -381,7 +381,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label fx:id="lblQTYRM_54667" contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 0 10 10 0;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1">
+                        <Label fx:id="lblQTYRM_54667" contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_5467OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 0 10 10 0;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -401,7 +401,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label fx:id="lblQTYRM_7896" contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 0 10 10 0;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1">
+                        <Label fx:id="lblQTYRM_7896" contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_7896OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 0 10 10 0;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
@@ -421,7 +421,7 @@
                         <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <Label fx:id="lblQTYRM_0093" contentDisplay="CENTER" maxWidth="500.0" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 0 10 10 0;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1">
+                        <Label fx:id="lblQTYRM_0093" contentDisplay="CENTER" maxWidth="500.0" onMouseClicked="#RM_0093OnAction" prefHeight="100.0" prefWidth="125.0" style="-fx-background-color: linear-gradient(to bottom, #48bfe3, #46cce5, #4dd8e4, #5de4e2, #72efdd);; -fx-background-radius: 0 10 10 0;" textAlignment="CENTER" textOverrun="CLIP" GridPane.columnIndex="1">
                            <font>
                               <Font name="System Bold" size="15.0" />
                            </font>
