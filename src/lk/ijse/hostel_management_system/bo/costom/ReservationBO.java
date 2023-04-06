@@ -4,6 +4,8 @@ import lk.ijse.hostel_management_system.bo.SupperBO;
 import lk.ijse.hostel_management_system.dto.ReservationDTO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
 
+import java.util.ArrayList;
+
 public interface ReservationBO extends SupperBO {
     RoomDTO getRoom(String room_type_id);
 
@@ -12,6 +14,8 @@ public interface ReservationBO extends SupperBO {
     boolean saveRegistration(ReservationDTO dto);
 
     boolean deleteRegistration(ReservationDTO dto);
+
+    ArrayList<ReservationDTO> getAll();
 
     String getLastId();
 }

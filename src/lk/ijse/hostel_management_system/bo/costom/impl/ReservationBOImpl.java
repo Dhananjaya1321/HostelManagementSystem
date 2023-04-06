@@ -8,9 +8,13 @@ import lk.ijse.hostel_management_system.dao.costom.RoomDAO;
 import lk.ijse.hostel_management_system.dao.costom.StudentDAO;
 import lk.ijse.hostel_management_system.dto.ReservationDTO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
+import lk.ijse.hostel_management_system.dto.StudentDTO;
 import lk.ijse.hostel_management_system.entity.Reservation;
 import lk.ijse.hostel_management_system.entity.Room;
 import lk.ijse.hostel_management_system.entity.Student;
+import lk.ijse.hostel_management_system.view.tm.ReservationTM;
+
+import java.util.ArrayList;
 
 public class ReservationBOImpl implements ReservationBO {
     private RoomDAO roomDAO = (RoomDAO) DAOFactory.getInstance().getDAOType(DAOType.ROOM);
@@ -35,9 +39,9 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public boolean saveRegistration(ReservationDTO dto) {
-        Student student=new Student();
+        Student student = new Student();
         student.setStudent_id(dto.getStudent_id());
-        Room room=new Room();
+        Room room = new Room();
         room.setRoom_type_id(dto.getRoom_type_id());
         return reservationDAO.save(
                 new Reservation(
@@ -52,9 +56,9 @@ public class ReservationBOImpl implements ReservationBO {
 
     @Override
     public boolean deleteRegistration(ReservationDTO dto) {
-        Student student=new Student();
+        Student student = new Student();
         student.setStudent_id(dto.getStudent_id());
-        Room room=new Room();
+        Room room = new Room();
         room.setRoom_type_id(dto.getRoom_type_id());
         return reservationDAO.delete(
                 new Reservation(
@@ -65,6 +69,28 @@ public class ReservationBOImpl implements ReservationBO {
                         dto.getStatus()
                 )
         );
+    }
+
+    @Override
+    public ArrayList<ReservationDTO> getAll() {
+        Student student;
+        Room room;
+        ArrayList<Reservation> arrayList = reservationDAO.getAll();
+        ArrayList<ReservationDTO> dtos = new ArrayList<>();
+        for (Reservation r : arrayList) {
+            student = r.getStudent();
+            room = r.getRoom();
+            dtos.add(
+                    new ReservationDTO(
+                            r.getRes_id(),
+                            r.getDate(),
+                            student.getStudent_id(),
+                            room.getRoom_type_id(),
+                            r.getStatus()
+                    )
+            );
+        }
+        return dtos;
     }
 
     @Override

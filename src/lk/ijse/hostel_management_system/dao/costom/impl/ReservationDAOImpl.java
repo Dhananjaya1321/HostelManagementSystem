@@ -2,11 +2,14 @@ package lk.ijse.hostel_management_system.dao.costom.impl;
 
 import lk.ijse.hostel_management_system.dao.costom.ReservationDAO;
 import lk.ijse.hostel_management_system.entity.Reservation;
+import lk.ijse.hostel_management_system.entity.Student;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.query.NativeQuery;
 import org.hibernate.query.Query;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ReservationDAOImpl implements ReservationDAO {
@@ -81,4 +84,25 @@ public class ReservationDAOImpl implements ReservationDAO {
         }
         return null;
     }
+
+    @Override
+    public ArrayList<Reservation> getAll() {
+        Session session= FactoryConfiguration.getInstance().getSession();
+        Transaction transaction=session.beginTransaction();
+        try {
+            NativeQuery nativeQuery = session.createSQLQuery("SELECT * FROM reservation");
+            nativeQuery.addEntity(Reservation.class);
+            List<Reservation> reservationList=nativeQuery.list();
+            transaction.commit();
+            session.close();
+            return (ArrayList<Reservation>) reservationList;
+        } catch (Exception e) {
+            transaction.rollback();
+            session.close();
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+
 }
