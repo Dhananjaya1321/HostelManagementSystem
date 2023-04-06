@@ -27,6 +27,8 @@ public class BOFactory {
                 return new AddUserBOImpl();
             case SETTING:
                 return new SettingBOImpl();
+            case LOGIN:
+                return new LogInBOImpl();
             default:
                 return null;
         }

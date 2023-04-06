@@ -9,9 +9,7 @@ import javafx.scene.layout.GridPane;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
 import lk.ijse.hostel_management_system.bo.costom.SettingBO;
-import lk.ijse.hostel_management_system.dao.costom.UserDAO;
 import lk.ijse.hostel_management_system.dto.UserDTO;
-import lk.ijse.hostel_management_system.entity.User;
 
 public class SettingFormController {
 
