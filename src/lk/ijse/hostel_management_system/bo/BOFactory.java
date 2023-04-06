@@ -25,6 +25,8 @@ public class BOFactory {
                 return new ReservationBOImpl();
             case ADDUSER:
                 return new AddUserBOImpl();
+            case SETTING:
+                return new SettingBOImpl();
             default:
                 return null;
         }

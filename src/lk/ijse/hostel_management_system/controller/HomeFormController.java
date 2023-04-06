@@ -54,7 +54,7 @@ public class HomeFormController implements Initializable {
 
     @FXML
     void btnSettings(ActionEvent event) {
-        setPane("SettingsForm.fxml");
+        setPane("SettingForm.fxml");
     }
 
     @FXML
