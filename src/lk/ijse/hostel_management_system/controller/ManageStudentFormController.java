@@ -65,8 +65,8 @@ public class ManageStudentFormController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colGender;
-    private ObservableList<StudentTM> observableList = FXCollections.observableArrayList();
-    private StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
+    private final ObservableList<StudentTM> observableList = FXCollections.observableArrayList();
+    private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
     private String studentId;
     private String name;
     private String address;
@@ -87,6 +87,7 @@ public class ManageStudentFormController implements Initializable {
         if (isAdded) {
             table.getItems().add(new StudentTM(studentId, name, address, contact, dob, gender));
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Added");
+            clearAll();
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
@@ -107,6 +108,7 @@ public class ManageStudentFormController implements Initializable {
             table.getItems().remove(table.getSelectionModel().getSelectedItem());
             table.getSelectionModel().clearSelection();
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Deleted");
+            clearAll();
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
@@ -125,6 +127,7 @@ public class ManageStudentFormController implements Initializable {
         Alert alert;
         if (isAdded) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Update");
+            clearAll();
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
@@ -161,7 +164,14 @@ public class ManageStudentFormController implements Initializable {
         });
         loadAll();
     }
-
+    private void clearAll(){
+        txtID.setText(null);
+        txtName.setText(null);
+        txtAddress.setText(null);
+        txtContact.setText(null);
+        txtDOB.setValue(null);
+        cmbGender.setValue(null);
+    }
     private void loadAll() {
         table.getItems().clear();
         ArrayList<StudentDTO> allStudent = studentBO.getAllStudent();

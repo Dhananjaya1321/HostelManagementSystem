@@ -89,6 +89,7 @@ public class RegistrationFormController implements Initializable {
         Alert alert;
         if (isAdded) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
+            clearAll();
             lblReservationID.setText(generateNewId());
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
@@ -107,6 +108,7 @@ public class RegistrationFormController implements Initializable {
         Alert alert;
         if (isDeleted) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully deleted");
+            clearAll();
             lblReservationID.setText(generateNewId());
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
@@ -136,6 +138,8 @@ public class RegistrationFormController implements Initializable {
         Alert alert;
         if (isUpdated) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully updated");
+            clearAll();
+            lblReservationID.setText(generateNewId());
         } else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
@@ -170,10 +174,19 @@ public class RegistrationFormController implements Initializable {
         });
         loadAll();
     }
+
+    private void clearAll() {
+        lblReservationID.setText(null);
+        txtDate.setValue(null);
+        txtStudentId.setText(null);
+        cmbRoomTypeID.setValue(null);
+        cmbStatus.setValue(null);
+    }
+
     private void loadAll() {
         table.getItems().clear();
         ArrayList<ReservationDTO> allStudent = reservationBO.getAll();
-        for (ReservationDTO r:allStudent) {
+        for (ReservationDTO r : allStudent) {
             table.getItems().add(
                     new ReservationTM(
                             r.getRes_id(),
@@ -185,6 +198,7 @@ public class RegistrationFormController implements Initializable {
             );
         }
     }
+
     public void cmbRoomTypeIDOnAction(ActionEvent actionEvent) {
         String value = cmbRoomTypeID.getValue();
         RoomDTO room = reservationBO.getRoom(value);

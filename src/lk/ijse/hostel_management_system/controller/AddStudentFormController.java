@@ -42,7 +42,7 @@ public class AddStudentFormController implements Initializable {
     @FXML
     private JFXComboBox<String> cmbGender;
 
-    private AddUserBO addUserBO = (AddUserBO) BOFactory.getInstance().getBOType(BOType.ADDUSER);
+    private final AddUserBO addUserBO = (AddUserBO) BOFactory.getInstance().getBOType(BOType.ADDUSER);
 
     @FXML
     void btnAdd(ActionEvent event) {

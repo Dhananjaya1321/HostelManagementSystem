@@ -36,7 +36,7 @@ public class ManageRoomFormController implements Initializable {
     String id, type;
     double keyMoney;
     int qty;
-    private RoomBO roomBO = (RoomBO) BOFactory.getInstance().getBOType(BOType.ROOM);
+    private final RoomBO roomBO = (RoomBO) BOFactory.getInstance().getBOType(BOType.ROOM);
 
     @FXML
     void btnAdd(ActionEvent event) {
@@ -49,6 +49,7 @@ public class ManageRoomFormController implements Initializable {
         Alert alert;
         if (isAdded) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully added");
+            clearAll();
         }else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
@@ -67,6 +68,7 @@ public class ManageRoomFormController implements Initializable {
         Alert alert;
         if (isDeleted) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully deleted");
+            clearAll();
         }else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
@@ -84,6 +86,7 @@ public class ManageRoomFormController implements Initializable {
         Alert alert;
         if (isUpdated) {
             alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully updated");
+            clearAll();
         }else {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
@@ -95,6 +98,12 @@ public class ManageRoomFormController implements Initializable {
         cmbRoomTypeID.getItems().addAll(new String[]{"RM-1324", "RM-5467", "RM-7896", "RM-0093"});
     }
 
+    private void clearAll(){
+         cmbRoomTypeID.setValue(null);
+         lblType.setText(null);
+         txtKeyMoney.setText(null);
+         txtRoomQTY.setText(null);
+    }
     public void cmbRoomTypeIDOnAction(ActionEvent actionEvent) {
         String value = cmbRoomTypeID.getValue();
         switch (value) {
