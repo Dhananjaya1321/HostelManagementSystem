@@ -88,6 +88,7 @@ public class RegistrationFormController implements Initializable {
         boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
         Alert alert;
         if (isAdded) {
+            table.getItems().add(new ReservationTM(res_id, date, student_id, room_id, status));
             alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
             clearAll();
             lblReservationID.setText(generateNewId());
@@ -107,6 +108,8 @@ public class RegistrationFormController implements Initializable {
         boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
         Alert alert;
         if (isDeleted) {
+            table.getItems().remove(table.getSelectionModel().getSelectedItem());
+            table.getSelectionModel().clearSelection();
             alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully deleted");
             clearAll();
             lblReservationID.setText(generateNewId());
@@ -144,6 +147,14 @@ public class RegistrationFormController implements Initializable {
             alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
         alert.show();
+
+        ReservationTM tm = table.getSelectionModel().getSelectedItem();
+        tm.setRes_id(res_id);
+        tm.setStudent_id(student_id);
+        tm.setDate(date);
+        tm.setStatus(status);
+        tm.setRoom_type_id(room_id);
+        table.refresh();
     }
 
     @Override
