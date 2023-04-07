@@ -29,6 +29,8 @@ public class BOFactory {
                 return new SettingBOImpl();
             case LOGIN:
                 return new LogInBOImpl();
+            case PAYMENt_DETAILS:
+                return new PaymentDetailsBOImpl();
             default:
                 return null;
         }

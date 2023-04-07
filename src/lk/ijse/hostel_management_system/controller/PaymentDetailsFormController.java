@@ -9,7 +9,9 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
+import lk.ijse.hostel_management_system.bo.custom.PaymentDetailsBO;
 import lk.ijse.hostel_management_system.bo.custom.StudentBO;
+import lk.ijse.hostel_management_system.dto.CustomDTO;
 import lk.ijse.hostel_management_system.dto.StudentDTO;
 import lk.ijse.hostel_management_system.view.tm.StudentTM;
 
@@ -45,7 +47,7 @@ public class PaymentDetailsFormController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colGender;
-    private final StudentBO studentBO = (StudentBO) BOFactory.getInstance().getBOType(BOType.STUDENT);
+    private final PaymentDetailsBO paymentDetailsBO = (PaymentDetailsBO) BOFactory.getInstance().getBOType(BOType.PAYMENt_DETAILS);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -59,6 +61,19 @@ public class PaymentDetailsFormController implements Initializable {
     }
 
     private void loadAll() {
-
+        table.getItems().clear();
+        ArrayList<CustomDTO> allStudent = paymentDetailsBO.getAllPendingPaymentStudent();
+        for (CustomDTO c:allStudent) {
+            table.getItems().add(
+                    new StudentTM(
+                            c.getStudent_id(),
+                            c.getName(),
+                            c.getAddress(),
+                            c.getContact_no(),
+                            c.getDob(),
+                            c.getGender()
+                    )
+            );
+        }
     }
 }

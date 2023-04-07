@@ -30,4 +30,13 @@ public class CustomEntity {
     private String gender;
     private String userName;
     private String password;
+    public CustomEntity(String student_id, String name, String address, String contact_no, LocalDate dob, String gender) {
+        this.student_id = student_id;
+        this.name = name;
+        this.address = address;
+        this.contact_no = contact_no;
+        this.dob = dob;
+        this.gender = gender;
+
+    }
 }
