@@ -51,7 +51,7 @@
                   <DropShadow />
                </effect>
                <children>
-                  <TextField fx:id="txtSearch" prefHeight="35.0" promptText="Search Student name or ID" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER">
+                  <TextField fx:id="txtSearch" onKeyReleased="#btnSearch" prefHeight="35.0" promptText="Search Student name or ID" GridPane.columnIndex="2" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font size="15.0" />
                      </font></TextField>

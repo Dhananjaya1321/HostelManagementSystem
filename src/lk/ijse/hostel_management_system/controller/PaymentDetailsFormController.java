@@ -6,13 +6,12 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.GridPane;
 import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
 import lk.ijse.hostel_management_system.bo.custom.PaymentDetailsBO;
-import lk.ijse.hostel_management_system.bo.custom.StudentBO;
 import lk.ijse.hostel_management_system.dto.CustomDTO;
-import lk.ijse.hostel_management_system.dto.StudentDTO;
 import lk.ijse.hostel_management_system.view.tm.StudentTM;
 
 import java.net.URL;
@@ -75,5 +74,10 @@ public class PaymentDetailsFormController implements Initializable {
                     )
             );
         }
+    }
+
+    public void btnSearch(KeyEvent keyEvent) {
+        String text = txtSearch.getText();
+        //I will create search method next time
     }
 }
