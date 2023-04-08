@@ -20,6 +20,6 @@
     <orderEntry type="library" name="mysql-connector-java-8.0.24" level="project" />
     <orderEntry type="library" name="required" level="project" />
     <orderEntry type="library" name="lombok" level="project" />
-    <orderEntry type="library" name="ehcache-3.9.6" level="project" />
+    <orderEntry type="library" name="EHCache" level="project" />
   </component>
 </module>

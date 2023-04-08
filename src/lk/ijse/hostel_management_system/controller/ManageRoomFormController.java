@@ -218,28 +218,28 @@ public class ManageRoomFormController implements Initializable {
     }
 
     public void RM_0093OnAction(MouseEvent mouseEvent) {
-        cmbRoomTypeID.setValue("RM_0093");
+        cmbRoomTypeID.setValue("RM-0093");
         lblType.setText("AC / Food");
         txtKeyMoney.setText(lblKeyMoneyRM_0093.getText());
         txtRoomQTY.setText(lblQTYRM_0093.getText());
     }
 
     public void RM_1324OnAction(MouseEvent mouseEvent) {
-        cmbRoomTypeID.setValue("RM_1324");
+        cmbRoomTypeID.setValue("RM-1324");
         lblType.setText("Non-AC");
         txtKeyMoney.setText(lblKeyMoneyRM_1324.getText());
         txtRoomQTY.setText(lblQTYRM_1324.getText());
     }
 
     public void RM_5467OnAction(MouseEvent mouseEvent) {
-        cmbRoomTypeID.setValue("RM_5467");
+        cmbRoomTypeID.setValue("RM-5467");
         lblType.setText("Non-AC / Food");
         txtKeyMoney.setText(lblKeyMoneyRM_5467.getText());
         txtRoomQTY.setText(lblQTYRM_54667.getText());
     }
 
     public void RM_7896OnAction(MouseEvent mouseEvent) {
-        cmbRoomTypeID.setValue("RM_7896");
+        cmbRoomTypeID.setValue("RM-7896");
         lblType.setText("AC");
         txtKeyMoney.setText(lblKeyMoneyRM_7896.getText());
         txtRoomQTY.setText(lblQTYRM_7896.getText());

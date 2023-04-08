@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="EHCache">
+    <CLASSES>
+      <root url="file://$PROJECT_DIR$/src/lk/ijse/hostel_management_system/lib/EHCache" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+    <jarDirectory url="file://$PROJECT_DIR$/src/lk/ijse/hostel_management_system/lib/EHCache" recursive="false" />
+  </library>
+</component>

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ehcache-3.9.6">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/src/lk/ijse/hostel_management_system/lib/ehcache-3.9.6.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
