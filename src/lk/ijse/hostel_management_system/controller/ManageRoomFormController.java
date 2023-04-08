@@ -13,6 +13,8 @@ import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
 import lk.ijse.hostel_management_system.bo.custom.RoomBO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
+import lk.ijse.hostel_management_system.util.CheckValidation;
+import lk.ijse.hostel_management_system.util.ValidationType;
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,6 +30,8 @@ public class ManageRoomFormController implements Initializable {
     public Label lblKeyMoneyRM_7896;
     public Label lblKeyMoneyRM_5467;
     public Label lblKeyMoneyRM_1324;
+    public Label lblQTY;
+    public Label lblKeyMoney;
     @FXML
     private GridPane rightPane;
 
@@ -55,16 +59,31 @@ public class ManageRoomFormController implements Initializable {
         keyMoney = Double.parseDouble(txtKeyMoney.getText());
         qty = Integer.parseInt(txtRoomQTY.getText());
         roomDTO = new RoomDTO(id, type, keyMoney, qty);
-        boolean isAdded = roomBO.saveRoom(roomDTO);
-        Alert alert;
-        if (isAdded) {
-            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully added");
-            clearAll();
-            loadAll();
+
+        if (CheckValidation.validation(ValidationType.MONEY, String.valueOf(keyMoney))) {
+            if (CheckValidation.validation(ValidationType.QTY, String.valueOf(qty))) {
+                boolean isAdded = roomBO.saveRoom(roomDTO);
+                Alert alert;
+                if (isAdded) {
+                    alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully added");
+                    clearAll();
+                    loadAll();
+                } else {
+                    alert = new Alert(Alert.AlertType.ERROR, "Error");
+                }
+                alert.show();
+            } else {
+                //qty
+                lblQTY.setText("Incorrect QTY");
+                txtRoomQTY.requestFocus();
+                txtRoomQTY.setText(null);
+            }
         } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
+            //money
+            lblKeyMoney.setText("Incorrect type");
+            txtKeyMoney.requestFocus();
+            txtKeyMoney.setText(null);
         }
-        alert.show();
 
     }
 
@@ -75,16 +94,31 @@ public class ManageRoomFormController implements Initializable {
         keyMoney = Double.parseDouble(txtKeyMoney.getText());
         qty = Integer.parseInt(txtRoomQTY.getText());
         roomDTO = new RoomDTO(id, type, keyMoney, qty);
-        boolean isDeleted = roomBO.deleteRoom(roomDTO);
-        Alert alert;
-        if (isDeleted) {
-            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully deleted");
-            clearAll();
-            loadAll();
+
+        if (CheckValidation.validation(ValidationType.MONEY, String.valueOf(keyMoney))) {
+            if (CheckValidation.validation(ValidationType.QTY, String.valueOf(qty))) {
+                boolean isDeleted = roomBO.deleteRoom(roomDTO);
+                Alert alert;
+                if (isDeleted) {
+                    alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully deleted");
+                    clearAll();
+                    loadAll();
+                } else {
+                    alert = new Alert(Alert.AlertType.ERROR, "Error");
+                }
+                alert.show();
+            } else {
+                //qty
+                lblQTY.setText("Incorrect QTY");
+                txtRoomQTY.requestFocus();
+                txtRoomQTY.setText(null);
+            }
         } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
+            //money
+            lblKeyMoney.setText("Incorrect type");
+            txtKeyMoney.requestFocus();
+            txtKeyMoney.setText(null);
         }
-        alert.show();
     }
 
     @FXML
@@ -94,16 +128,33 @@ public class ManageRoomFormController implements Initializable {
         keyMoney = Double.parseDouble(txtKeyMoney.getText());
         qty = Integer.parseInt(txtRoomQTY.getText());
         roomDTO = new RoomDTO(id, type, keyMoney, qty);
-        boolean isUpdated = roomBO.updateRoom(roomDTO);
-        Alert alert;
-        if (isUpdated) {
-            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully updated");
-            clearAll();
-            loadAll();
+
+
+        if (CheckValidation.validation(ValidationType.MONEY, String.valueOf(keyMoney))) {
+            if (CheckValidation.validation(ValidationType.QTY, String.valueOf(qty))) {
+                boolean isUpdated = roomBO.updateRoom(roomDTO);
+                Alert alert;
+                if (isUpdated) {
+                    alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully updated");
+                    clearAll();
+                    loadAll();
+                } else {
+                    alert = new Alert(Alert.AlertType.ERROR, "Error");
+                }
+                alert.show();
+            } else {
+                //qty
+                lblQTY.setText("Incorrect QTY");
+                txtRoomQTY.requestFocus();
+                txtRoomQTY.setText(null);
+            }
         } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
+            //money
+            lblKeyMoney.setText("Incorrect type");
+            txtKeyMoney.requestFocus();
+            txtKeyMoney.setText(null);
         }
-        alert.show();
+
     }
 
     @Override

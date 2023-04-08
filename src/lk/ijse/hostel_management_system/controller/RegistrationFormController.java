@@ -19,6 +19,8 @@ import lk.ijse.hostel_management_system.bo.custom.StudentBO;
 import lk.ijse.hostel_management_system.dto.ReservationDTO;
 import lk.ijse.hostel_management_system.dto.RoomDTO;
 import lk.ijse.hostel_management_system.dto.StudentDTO;
+import lk.ijse.hostel_management_system.util.CheckValidation;
+import lk.ijse.hostel_management_system.util.ValidationType;
 import lk.ijse.hostel_management_system.view.tm.ReservationTM;
 
 import java.io.IOException;
@@ -29,6 +31,7 @@ import java.util.ResourceBundle;
 
 public class RegistrationFormController implements Initializable {
 
+    public Label lblDate;
     @FXML
     private TextField txtStudentId;
     @FXML
@@ -83,17 +86,25 @@ public class RegistrationFormController implements Initializable {
         date = txtDate.getValue();
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
-        boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-        Alert alert;
-        if (isAdded) {
-            table.getItems().add(new ReservationTM(res_id, date, student_id, room_id, status));
-            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
-            clearAll();
-            lblReservationID.setText(generateNewId());
+
+        if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
+            boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+            Alert alert;
+            if (isAdded) {
+                table.getItems().add(new ReservationTM(res_id, date, student_id, room_id, status));
+                alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
+                clearAll();
+                lblReservationID.setText(generateNewId());
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR, "Error");
+            }
+            alert.show();
         } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
+            //date
+            lblDate.setText("Incorrect date");
+            txtDate.requestFocus();
+            txtDate.setValue(null);
         }
-        alert.show();
     }
 
     @FXML
@@ -103,18 +114,27 @@ public class RegistrationFormController implements Initializable {
         date = txtDate.getValue();
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
-        boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-        Alert alert;
-        if (isDeleted) {
-            table.getItems().remove(table.getSelectionModel().getSelectedItem());
-            table.getSelectionModel().clearSelection();
-            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully deleted");
-            clearAll();
-            lblReservationID.setText(generateNewId());
+
+        if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
+            boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+            boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+            Alert alert;
+            if (isDeleted) {
+                table.getItems().remove(table.getSelectionModel().getSelectedItem());
+                table.getSelectionModel().clearSelection();
+                alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully deleted");
+                clearAll();
+                lblReservationID.setText(generateNewId());
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR, "Error");
+            }
+            alert.show();
         } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
+            //date
+            lblDate.setText("Incorrect date");
+            txtDate.requestFocus();
+            txtDate.setValue(null);
         }
-        alert.show();
     }
 
     @FXML
@@ -135,24 +155,34 @@ public class RegistrationFormController implements Initializable {
         date = txtDate.getValue();
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
-        boolean isUpdated = reservationBO.updateRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-        Alert alert;
-        if (isUpdated) {
-            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully updated");
-            clearAll();
-            lblReservationID.setText(generateNewId());
-        } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
-        }
-        alert.show();
 
-        ReservationTM tm = table.getSelectionModel().getSelectedItem();
-        tm.setRes_id(res_id);
-        tm.setStudent_id(student_id);
-        tm.setDate(date);
-        tm.setStatus(status);
-        tm.setRoom_type_id(room_id);
-        table.refresh();
+        if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
+            boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+            boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+            boolean isUpdated = reservationBO.updateRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+            Alert alert;
+            if (isUpdated) {
+                alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully updated");
+                clearAll();
+                lblReservationID.setText(generateNewId());
+            } else {
+                alert = new Alert(Alert.AlertType.ERROR, "Error");
+            }
+            alert.show();
+
+            ReservationTM tm = table.getSelectionModel().getSelectedItem();
+            tm.setRes_id(res_id);
+            tm.setStudent_id(student_id);
+            tm.setDate(date);
+            tm.setStatus(status);
+            tm.setRoom_type_id(room_id);
+            table.refresh();
+        } else {
+            //date
+            lblDate.setText("Incorrect date");
+            txtDate.requestFocus();
+            txtDate.setValue(null);
+        }
     }
 
     @Override

@@ -53,9 +53,9 @@
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="68.0" minHeight="0.0" prefHeight="25.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="10.0" minHeight="0.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
@@ -64,7 +64,7 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <Label fx:id="lblType" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                        <Label fx:id="lblType" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <effect>
                               <InnerShadow color="#0000009a" height="5.0" radius="2.0" width="5.0" />
                            </effect>
@@ -77,7 +77,12 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtRoomQTY" maxWidth="500.0" prefHeight="35.0" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                        <TextField fx:id="txtRoomQTY" maxWidth="500.0" prefHeight="35.0" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <Label fx:id="lblQTY" maxWidth="500.0" prefWidth="500.0" textFill="RED" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
                      </children>
                   </GridPane>
                   <GridPane layoutX="177.0" layoutY="10.0" GridPane.columnIndex="1">
@@ -86,13 +91,13 @@
                      </columnConstraints>
                      <rowConstraints>
                         <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="105.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
-                        <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
+                        <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="60.0" vgrow="SOMETIMES" />
                         <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
                      </rowConstraints>
                      <children>
-                        <JFXComboBox fx:id="cmbRoomTypeID" onAction="#cmbRoomTypeIDOnAction" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                        <JFXComboBox fx:id="cmbRoomTypeID" onAction="#cmbRoomTypeIDOnAction" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                            <effect>
                               <InnerShadow color="#00000098" height="5.0" radius="2.0" width="5.0" />
                            </effect>
@@ -107,7 +112,12 @@
                               <Font name="System Bold" size="15.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="txtKeyMoney" maxWidth="500.0" prefHeight="35.0" GridPane.rowIndex="3" GridPane.valignment="BOTTOM" />
+                        <TextField fx:id="txtKeyMoney" maxWidth="500.0" prefHeight="35.0" GridPane.rowIndex="3" GridPane.valignment="CENTER" />
+                        <Label fx:id="lblKeyMoney" maxWidth="500.0" prefWidth="500.0" textFill="RED" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
                      </children>
                   </GridPane>
                   <GridPane layoutX="10.0" layoutY="10.0" GridPane.columnIndex="5">

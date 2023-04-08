@@ -12,6 +12,8 @@ import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
 import lk.ijse.hostel_management_system.bo.custom.StudentBO;
 import lk.ijse.hostel_management_system.dto.StudentDTO;
+import lk.ijse.hostel_management_system.util.CheckValidation;
+import lk.ijse.hostel_management_system.util.ValidationType;
 import lk.ijse.hostel_management_system.view.tm.StudentTM;
 
 import java.net.URL;
@@ -21,6 +23,9 @@ import java.util.ResourceBundle;
 
 public class ManageStudentFormController implements Initializable {
 
+    public Label lblName;
+    public Label lblContact;
+    public Label lblDate;
     @FXML
     private GridPane rightPane;
 
@@ -78,16 +83,39 @@ public class ManageStudentFormController implements Initializable {
         contact = txtContact.getText();
         dob = txtDOB.getValue();
         gender = cmbGender.getValue();
-        boolean isAdded = studentBO.saveStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
-        Alert alert;
-        if (isAdded) {
-            table.getItems().add(new StudentTM(studentId, name, address, contact, dob, gender));
-            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Added");
-            clearAll();
+
+        if (CheckValidation.validation(ValidationType.NAME, name)) {
+            if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
+                if (CheckValidation.validation(ValidationType.DATE, String.valueOf(dob))) {
+                    boolean isAdded = studentBO.saveStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
+                    Alert alert;
+                    if (isAdded) {
+                        table.getItems().add(new StudentTM(studentId, name, address, contact, dob, gender));
+                        alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Added");
+                        clearAll();
+                    } else {
+                        alert = new Alert(Alert.AlertType.ERROR, "Error");
+                    }
+                    alert.show();
+                } else {
+                    //date
+                    lblDate.setText("Incorrect date");
+                    txtDOB.requestFocus();
+                    txtDOB.setValue(null);
+                }
+            } else {
+                //contact
+                lblContact.setText("Incorrect number");
+                txtContact.requestFocus();
+                txtContact.setText(null);
+            }
         } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
+            //name
+            lblName.setText("Incorrect name");
+            txtName.requestFocus();
+            txtName.setText(null);
         }
-        alert.show();
+
     }
 
     @FXML
@@ -98,17 +126,39 @@ public class ManageStudentFormController implements Initializable {
         contact = txtContact.getText();
         dob = txtDOB.getValue();
         gender = cmbGender.getValue();
-        boolean isAdded = studentBO.deleteStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
-        Alert alert;
-        if (isAdded) {
-            table.getItems().remove(table.getSelectionModel().getSelectedItem());
-            table.getSelectionModel().clearSelection();
-            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Deleted");
-            clearAll();
+
+        if (CheckValidation.validation(ValidationType.NAME, name)) {
+            if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
+                if (CheckValidation.validation(ValidationType.DATE, String.valueOf(dob))) {
+                    boolean isAdded = studentBO.deleteStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
+                    Alert alert;
+                    if (isAdded) {
+                        table.getItems().remove(table.getSelectionModel().getSelectedItem());
+                        table.getSelectionModel().clearSelection();
+                        alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Deleted");
+                        clearAll();
+                    } else {
+                        alert = new Alert(Alert.AlertType.ERROR, "Error");
+                    }
+                    alert.show();
+                } else {
+                    //date
+                    lblDate.setText("Incorrect date");
+                    txtDOB.requestFocus();
+                    txtDOB.setValue(null);
+                }
+            } else {
+                //contact
+                lblContact.setText("Incorrect number");
+                txtContact.requestFocus();
+                txtContact.setText(null);
+            }
         } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
+            //name
+            lblName.setText("Incorrect name");
+            txtName.requestFocus();
+            txtName.setText(null);
         }
-        alert.show();
     }
 
     @FXML
@@ -119,23 +169,45 @@ public class ManageStudentFormController implements Initializable {
         contact = txtContact.getText();
         dob = txtDOB.getValue();
         gender = cmbGender.getValue();
-        boolean isAdded = studentBO.updateStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
-        Alert alert;
-        if (isAdded) {
-            alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Update");
-            clearAll();
-        } else {
-            alert = new Alert(Alert.AlertType.ERROR, "Error");
-        }
-        alert.show();
-        StudentTM selectedCustomer = table.getSelectionModel().getSelectedItem();
+
+        if (CheckValidation.validation(ValidationType.NAME, name)) {
+            if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
+                if (CheckValidation.validation(ValidationType.DATE, String.valueOf(dob))) {
+                    boolean isAdded = studentBO.updateStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
+                    Alert alert;
+                    if (isAdded) {
+                        alert = new Alert(Alert.AlertType.INFORMATION, "Room has been successfully Update");
+                        clearAll();
+                    } else {
+                        alert = new Alert(Alert.AlertType.ERROR, "Error");
+                    }
+                    alert.show();
+                    StudentTM selectedCustomer = table.getSelectionModel().getSelectedItem();
 //        selectedCustomer.setStudent_id(studentId);
-        selectedCustomer.setName(name);
-        selectedCustomer.setAddress(address);
-        selectedCustomer.setDob(dob);
-        selectedCustomer.setContact_no(contact);
-        selectedCustomer.setGender(gender);
-        table.refresh();
+                    selectedCustomer.setName(name);
+                    selectedCustomer.setAddress(address);
+                    selectedCustomer.setDob(dob);
+                    selectedCustomer.setContact_no(contact);
+                    selectedCustomer.setGender(gender);
+                    table.refresh();
+                } else {
+                    //date
+                    lblDate.setText("Incorrect date");
+                    txtDOB.requestFocus();
+                    txtDOB.setValue(null);
+                }
+            } else {
+                //contact
+                lblContact.setText("Incorrect number");
+                txtContact.requestFocus();
+                txtContact.setText(null);
+            }
+        } else {
+            //name
+            lblName.setText("Incorrect name");
+            txtName.requestFocus();
+            txtName.setText(null);
+        }
     }
 
     @Override
@@ -160,7 +232,8 @@ public class ManageStudentFormController implements Initializable {
         });
         loadAll();
     }
-    private void clearAll(){
+
+    private void clearAll() {
         txtID.setText(null);
         txtName.setText(null);
         txtAddress.setText(null);
@@ -168,10 +241,11 @@ public class ManageStudentFormController implements Initializable {
         txtDOB.setValue(null);
         cmbGender.setValue(null);
     }
+
     private void loadAll() {
         table.getItems().clear();
         ArrayList<StudentDTO> allStudent = studentBO.getAllStudent();
-        for (StudentDTO s:allStudent) {
+        for (StudentDTO s : allStudent) {
             table.getItems().add(
                     new StudentTM(
                             s.getStudent_id(),
