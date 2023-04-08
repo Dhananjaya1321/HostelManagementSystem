@@ -36,6 +36,11 @@ public class SettingFormController {
         String userName = txtUserName.getText();
         String password = txtPassword.getText();
         String rePassword = txtRePassword.getText();
+
+        lblUserName.setText(null);
+        lblPassword.setText(null);
+        lblRePassword.setText(null);
+
         if (CheckValidation.validation(ValidationType.USERNAME, userName)) {
             if (CheckValidation.validation(ValidationType.PASSWORD, password)) {
                 if (password.equals(rePassword)) {

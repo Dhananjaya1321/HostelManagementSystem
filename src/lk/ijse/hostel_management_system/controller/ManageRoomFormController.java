@@ -20,6 +20,8 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
+import static javafx.scene.paint.Color.RED;
+
 public class ManageRoomFormController implements Initializable {
 
     public Label lblQTYRM_0093;
@@ -60,6 +62,9 @@ public class ManageRoomFormController implements Initializable {
         qty = Integer.parseInt(txtRoomQTY.getText());
         roomDTO = new RoomDTO(id, type, keyMoney, qty);
 
+        lblKeyMoney.setText(null);
+        lblQTY.setText(null);
+
         if (CheckValidation.validation(ValidationType.MONEY, String.valueOf(keyMoney))) {
             if (CheckValidation.validation(ValidationType.QTY, String.valueOf(qty))) {
                 boolean isAdded = roomBO.saveRoom(roomDTO);
@@ -76,13 +81,11 @@ public class ManageRoomFormController implements Initializable {
                 //qty
                 lblQTY.setText("Incorrect QTY");
                 txtRoomQTY.requestFocus();
-                txtRoomQTY.setText(null);
             }
         } else {
             //money
             lblKeyMoney.setText("Incorrect type");
             txtKeyMoney.requestFocus();
-            txtKeyMoney.setText(null);
         }
 
     }
@@ -94,6 +97,9 @@ public class ManageRoomFormController implements Initializable {
         keyMoney = Double.parseDouble(txtKeyMoney.getText());
         qty = Integer.parseInt(txtRoomQTY.getText());
         roomDTO = new RoomDTO(id, type, keyMoney, qty);
+
+        lblKeyMoney.setText(null);
+        lblQTY.setText(null);
 
         if (CheckValidation.validation(ValidationType.MONEY, String.valueOf(keyMoney))) {
             if (CheckValidation.validation(ValidationType.QTY, String.valueOf(qty))) {
@@ -111,13 +117,11 @@ public class ManageRoomFormController implements Initializable {
                 //qty
                 lblQTY.setText("Incorrect QTY");
                 txtRoomQTY.requestFocus();
-                txtRoomQTY.setText(null);
             }
         } else {
             //money
             lblKeyMoney.setText("Incorrect type");
             txtKeyMoney.requestFocus();
-            txtKeyMoney.setText(null);
         }
     }
 
@@ -129,6 +133,8 @@ public class ManageRoomFormController implements Initializable {
         qty = Integer.parseInt(txtRoomQTY.getText());
         roomDTO = new RoomDTO(id, type, keyMoney, qty);
 
+        lblKeyMoney.setText(null);
+        lblQTY.setText(null);
 
         if (CheckValidation.validation(ValidationType.MONEY, String.valueOf(keyMoney))) {
             if (CheckValidation.validation(ValidationType.QTY, String.valueOf(qty))) {
@@ -146,13 +152,11 @@ public class ManageRoomFormController implements Initializable {
                 //qty
                 lblQTY.setText("Incorrect QTY");
                 txtRoomQTY.requestFocus();
-                txtRoomQTY.setText(null);
             }
         } else {
             //money
             lblKeyMoney.setText("Incorrect type");
             txtKeyMoney.requestFocus();
-            txtKeyMoney.setText(null);
         }
 
     }

@@ -84,6 +84,21 @@
                         </GridPane>
                         <PasswordField fx:id="txtPassword" prefHeight="35.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                         <PasswordField fx:id="txtRePassword" layoutX="60.0" layoutY="193.0" prefHeight="35.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Label fx:id="lblUserName" maxWidth="500.0" prefWidth="500.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblRePassword" layoutX="60.0" layoutY="122.0" maxWidth="500.0" prefWidth="500.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
+                        <Label fx:id="lblPassword" layoutX="10.0" layoutY="42.0" maxWidth="500.0" prefWidth="500.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font size="11.0" />
+                           </font>
+                        </Label>
                      </children>
                      <effect>
                         <DropShadow />

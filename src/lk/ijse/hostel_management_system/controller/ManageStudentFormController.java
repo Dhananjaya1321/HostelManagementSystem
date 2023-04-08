@@ -84,6 +84,10 @@ public class ManageStudentFormController implements Initializable {
         dob = txtDOB.getValue();
         gender = cmbGender.getValue();
 
+        lblContact.setText(null);
+        lblDate.setText(null);
+        lblName.setText(null);
+
         if (CheckValidation.validation(ValidationType.NAME, name)) {
             if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
                 if (CheckValidation.validation(ValidationType.DATE, String.valueOf(dob))) {
@@ -101,19 +105,16 @@ public class ManageStudentFormController implements Initializable {
                     //date
                     lblDate.setText("Incorrect date");
                     txtDOB.requestFocus();
-                    txtDOB.setValue(null);
                 }
             } else {
                 //contact
                 lblContact.setText("Incorrect number");
                 txtContact.requestFocus();
-                txtContact.setText(null);
             }
         } else {
             //name
             lblName.setText("Incorrect name");
             txtName.requestFocus();
-            txtName.setText(null);
         }
 
     }
@@ -126,6 +127,10 @@ public class ManageStudentFormController implements Initializable {
         contact = txtContact.getText();
         dob = txtDOB.getValue();
         gender = cmbGender.getValue();
+
+        lblContact.setText(null);
+        lblDate.setText(null);
+        lblName.setText(null);
 
         if (CheckValidation.validation(ValidationType.NAME, name)) {
             if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
@@ -145,19 +150,16 @@ public class ManageStudentFormController implements Initializable {
                     //date
                     lblDate.setText("Incorrect date");
                     txtDOB.requestFocus();
-                    txtDOB.setValue(null);
                 }
             } else {
                 //contact
                 lblContact.setText("Incorrect number");
                 txtContact.requestFocus();
-                txtContact.setText(null);
             }
         } else {
             //name
             lblName.setText("Incorrect name");
             txtName.requestFocus();
-            txtName.setText(null);
         }
     }
 
@@ -169,6 +171,10 @@ public class ManageStudentFormController implements Initializable {
         contact = txtContact.getText();
         dob = txtDOB.getValue();
         gender = cmbGender.getValue();
+
+        lblContact.setText(null);
+        lblDate.setText(null);
+        lblName.setText(null);
 
         if (CheckValidation.validation(ValidationType.NAME, name)) {
             if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
@@ -194,19 +200,16 @@ public class ManageStudentFormController implements Initializable {
                     //date
                     lblDate.setText("Incorrect date");
                     txtDOB.requestFocus();
-                    txtDOB.setValue(null);
                 }
             } else {
                 //contact
                 lblContact.setText("Incorrect number");
                 txtContact.requestFocus();
-                txtContact.setText(null);
             }
         } else {
             //name
             lblName.setText("Incorrect name");
             txtName.requestFocus();
-            txtName.setText(null);
         }
     }
 

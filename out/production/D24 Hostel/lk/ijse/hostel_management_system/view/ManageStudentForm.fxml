@@ -24,9 +24,9 @@
       <ColumnConstraints hgrow="SOMETIMES" maxWidth="50.0" minWidth="10.0" prefWidth="10.0" />
    </columnConstraints>
    <rowConstraints>
-      <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="194.0" vgrow="SOMETIMES" />
+      <RowConstraints maxHeight="350.0" minHeight="10.0" prefHeight="250.0" vgrow="SOMETIMES" />
       <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
-      <RowConstraints minHeight="10.0" prefHeight="406.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="400.0" vgrow="SOMETIMES" />
    </rowConstraints>
    <children>
       <GridPane GridPane.columnIndex="1">
@@ -35,7 +35,7 @@
          </columnConstraints>
          <rowConstraints>
             <RowConstraints maxHeight="20.0" minHeight="10.0" prefHeight="20.0" vgrow="SOMETIMES" />
-            <RowConstraints maxHeight="300.0" minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" prefHeight="200.0" vgrow="SOMETIMES" />
             <RowConstraints maxHeight="10.0" minHeight="10.0" prefHeight="10.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
@@ -51,20 +51,20 @@
               </columnConstraints>
               <rowConstraints>
                 <RowConstraints maxHeight="5.0" minHeight="10.0" prefHeight="5.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                  <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                  <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
                   <RowConstraints maxHeight="5.0" minHeight="10.0" prefHeight="5.0" vgrow="SOMETIMES" />
               </rowConstraints>
                <effect>
                   <DropShadow />
                </effect>
                <children>
-                  <TextField fx:id="txtID" prefHeight="35.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-                  <TextField fx:id="txtName" prefHeight="35.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="BOTTOM" />
-                  <TextField fx:id="txtContact" prefHeight="35.0" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-                  <TextArea fx:id="txtAddress" maxHeight="35.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="BOTTOM" />
-                  <JFXDatePicker fx:id="txtDOB" prefHeight="35.0" prefWidth="535.0" style="-fx-border-color: white; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                  <TextField fx:id="txtID" prefHeight="35.0" GridPane.columnIndex="1" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <TextField fx:id="txtName" prefHeight="35.0" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="CENTER" />
+                  <TextField fx:id="txtContact" prefHeight="35.0" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <TextArea fx:id="txtAddress" maxHeight="35.0" GridPane.columnIndex="1" GridPane.rowIndex="2" GridPane.valignment="CENTER" />
+                  <JFXDatePicker fx:id="txtDOB" prefHeight="35.0" prefWidth="535.0" style="-fx-border-color: white; -fx-background-color: white;" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <effect>
                         <InnerShadow color="#00000099" height="5.0" radius="2.0" width="5.0" />
                      </effect>
@@ -77,22 +77,22 @@
                         </LinearGradient>
                      </defaultColor>
                   </JFXDatePicker>
-                  <JFXButton buttonType="RAISED" onAction="#btnAdd" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #00f312; -fx-border-radius: 10; -fx-background-radius: 10;" text="Add" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                  <JFXButton buttonType="RAISED" onAction="#btnAdd" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #00f312; -fx-border-radius: 10; -fx-background-radius: 10;" text="Add" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="346.0" layoutY="27.0" onAction="#btnUpdate" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #0476D0; -fx-border-radius: 10; -fx-background-radius: 10;" text="Update" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                  <JFXButton buttonType="RAISED" layoutX="346.0" layoutY="27.0" onAction="#btnUpdate" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #0476D0; -fx-border-radius: 10; -fx-background-radius: 10;" text="Update" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="2" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXButton buttonType="RAISED" layoutX="346.0" layoutY="85.0" onAction="#btnDelete" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #ff0005; -fx-border-radius: 10; -fx-background-radius: 10;" text="Delete" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                  <JFXButton buttonType="RAISED" layoutX="346.0" layoutY="85.0" onAction="#btnDelete" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #ff0005; -fx-border-radius: 10; -fx-background-radius: 10;" text="Delete" GridPane.columnIndex="5" GridPane.halignment="RIGHT" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <font>
                         <Font name="System Bold" size="18.0" />
                      </font>
                   </JFXButton>
-                  <JFXComboBox fx:id="cmbGender" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                  <JFXComboBox fx:id="cmbGender" prefHeight="35.0" prefWidth="500.0" style="-fx-background-color: white;" GridPane.columnIndex="3" GridPane.rowIndex="3" GridPane.valignment="CENTER">
                      <effect>
                         <InnerShadow color="#00000098" height="5.0" radius="2.0" width="5.0" />
                      </effect>
@@ -125,6 +125,21 @@
                   <Label layoutX="10.0" layoutY="7.0" text="Contact  No" GridPane.columnIndex="3" GridPane.halignment="LEFT" GridPane.rowIndex="2" GridPane.valignment="TOP">
                      <font>
                         <Font name="System Bold" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblName" maxWidth="500.0" prefHeight="17.0" prefWidth="500.0" textFill="RED" GridPane.columnIndex="3" GridPane.rowIndex="1" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblContact" layoutX="183.0" layoutY="70.0" maxWidth="500.0" prefHeight="17.0" prefWidth="500.0" textFill="RED" GridPane.columnIndex="3" GridPane.rowIndex="2" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="lblDate" layoutX="183.0" layoutY="112.0" maxWidth="500.0" prefHeight="17.0" prefWidth="500.0" textFill="RED" GridPane.columnIndex="1" GridPane.rowIndex="3" GridPane.valignment="BOTTOM">
+                     <font>
+                        <Font size="11.0" />
                      </font>
                   </Label>
                </children>

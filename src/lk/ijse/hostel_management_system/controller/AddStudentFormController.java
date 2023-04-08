@@ -21,6 +21,8 @@ import java.time.LocalDate;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
+import static javafx.scene.paint.Color.RED;
+
 public class AddStudentFormController implements Initializable {
 
     public Label lblName;
@@ -57,6 +59,11 @@ public class AddStudentFormController implements Initializable {
         String contact = txtContact.getText();
         LocalDate dob = txtDOB.getValue();
         String gender = cmbGender.getValue();
+
+        lblContact.setText(null);
+        lblDate.setText(null);
+        lblName.setText(null);
+
         boolean isAdded;
         if (CheckValidation.validation(ValidationType.NAME, name)) {
             if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
@@ -81,19 +88,18 @@ public class AddStudentFormController implements Initializable {
                     //wrong DOB
                     lblDate.setText("Incorrect date");
                     txtDOB.requestFocus();
-                    txtDOB.setValue(null);
+                    txtDOB.setDefaultColor(RED);
+
                 }
             } else {
                 //wrong contact
                 lblContact.setText("Incorrect contact");
                 txtContact.requestFocus();
-                txtContact.setText(null);
             }
         } else {
             //wrong name
             lblName.setText("Incorrect name");
             txtName.requestFocus();
-            txtName.setText(null);
         }
     }
 

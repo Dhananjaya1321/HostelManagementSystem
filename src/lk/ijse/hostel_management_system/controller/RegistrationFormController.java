@@ -86,7 +86,7 @@ public class RegistrationFormController implements Initializable {
         date = txtDate.getValue();
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
-
+        lblDate.setText(null);
         if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
             boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
             Alert alert;
@@ -103,7 +103,6 @@ public class RegistrationFormController implements Initializable {
             //date
             lblDate.setText("Incorrect date");
             txtDate.requestFocus();
-            txtDate.setValue(null);
         }
     }
 
@@ -114,7 +113,7 @@ public class RegistrationFormController implements Initializable {
         date = txtDate.getValue();
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
-
+        lblDate.setText(null);
         if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
             boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
             boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
@@ -133,7 +132,6 @@ public class RegistrationFormController implements Initializable {
             //date
             lblDate.setText("Incorrect date");
             txtDate.requestFocus();
-            txtDate.setValue(null);
         }
     }
 
@@ -155,7 +153,7 @@ public class RegistrationFormController implements Initializable {
         date = txtDate.getValue();
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
-
+        lblDate.setText(null);
         if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
             boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
             boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
@@ -181,7 +179,6 @@ public class RegistrationFormController implements Initializable {
             //date
             lblDate.setText("Incorrect date");
             txtDate.requestFocus();
-            txtDate.setValue(null);
         }
     }
 

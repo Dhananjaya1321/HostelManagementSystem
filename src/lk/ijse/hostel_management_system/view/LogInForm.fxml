@@ -75,6 +75,16 @@
                   </ImageView>
                </children>
             </AnchorPane>
+            <Label fx:id="lblUserName" layoutX="23.0" layoutY="86.0" prefHeight="17.0" prefWidth="226.0" textFill="RED">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
+            <Label fx:id="lblPassword" layoutX="23.0" layoutY="183.0" prefHeight="17.0" prefWidth="226.0" textFill="RED">
+               <font>
+                  <Font size="11.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
       <Label layoutX="226.0" layoutY="13.0" prefWidth="59.0" text="D">

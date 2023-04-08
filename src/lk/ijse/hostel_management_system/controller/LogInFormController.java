@@ -9,6 +9,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -22,10 +23,14 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static javafx.scene.paint.Color.RED;
+
 public class LogInFormController implements Initializable {
 
     public ImageView imgView;
     public ImageView imgInvsible;
+    public Label lblUserName;
+    public Label lblPassword;
     @FXML
     private AnchorPane pane;
 
@@ -43,6 +48,7 @@ public class LogInFormController implements Initializable {
         String password = txtPassword.getText();
         String userName = txtUserName.getText();
         String pswdFildPassword = pswdPassword.getText();
+        clearAll();
         try{
             UserDTO user = logInBO.getUser(userName);
             if (password.equals(user.getPassword()) || pswdFildPassword.equals(user.getPassword())) {
@@ -51,16 +57,21 @@ public class LogInFormController implements Initializable {
                     stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("/lk/ijse/hostel_management_system/view/HomeForm.fxml"))));
                     stage.centerOnScreen();
                 }else {
-                    txtUserName.setText(null);
                     txtUserName.requestFocus();
+                    txtUserName.setFocusColor(RED);
+                    lblUserName.setText("Username does not match");
                 }
             }else {
-                txtPassword.setText(null);
                 txtPassword.requestFocus();
+                txtPassword.setFocusColor(RED);
+                pswdPassword.requestFocus();
+                pswdPassword.setFocusColor(RED);
+                lblPassword.setText("Password does not match");
             }
         }catch (Exception e){
-            Alert alert = new Alert(Alert.AlertType.WARNING, "Incorrect UserName");
-            alert.show();
+            txtUserName.requestFocus();
+            txtUserName.setFocusColor(RED);
+            lblUserName.setText("Username does not match");
         }
 
     }
@@ -96,5 +107,10 @@ public class LogInFormController implements Initializable {
         txtPassword.setVisible(false);
         imgInvsible.setVisible(true);
         pswdPassword.setVisible(true);
+    }
+
+    private void clearAll(){
+        lblPassword.setText("");
+        lblUserName.setText("");
     }
 }
