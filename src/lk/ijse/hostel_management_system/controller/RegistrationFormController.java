@@ -87,23 +87,18 @@ public class RegistrationFormController implements Initializable {
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
         lblDate.setText(null);
-        if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
-            boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-            Alert alert;
-            if (isAdded) {
-                table.getItems().add(new ReservationTM(res_id, date, student_id, room_id, status));
-                alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
-                clearAll();
-                lblReservationID.setText(generateNewId());
-            } else {
-                alert = new Alert(Alert.AlertType.ERROR, "Error");
-            }
-            alert.show();
+
+        boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        Alert alert;
+        if (isAdded) {
+            table.getItems().add(new ReservationTM(res_id, date, student_id, room_id, status));
+            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successful");
+            clearAll();
+            lblReservationID.setText(generateNewId());
         } else {
-            //date
-            lblDate.setText("Incorrect date");
-            txtDate.requestFocus();
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
+        alert.show();
     }
 
     @FXML
@@ -114,25 +109,19 @@ public class RegistrationFormController implements Initializable {
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
         lblDate.setText(null);
-        if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
-            boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-            boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-            Alert alert;
-            if (isDeleted) {
-                table.getItems().remove(table.getSelectionModel().getSelectedItem());
-                table.getSelectionModel().clearSelection();
-                alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully deleted");
-                clearAll();
-                lblReservationID.setText(generateNewId());
-            } else {
-                alert = new Alert(Alert.AlertType.ERROR, "Error");
-            }
-            alert.show();
+        boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        Alert alert;
+        if (isDeleted) {
+            table.getItems().remove(table.getSelectionModel().getSelectedItem());
+            table.getSelectionModel().clearSelection();
+            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully deleted");
+            clearAll();
+            lblReservationID.setText(generateNewId());
         } else {
-            //date
-            lblDate.setText("Incorrect date");
-            txtDate.requestFocus();
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
+        alert.show();
     }
 
     @FXML
@@ -154,32 +143,26 @@ public class RegistrationFormController implements Initializable {
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
         lblDate.setText(null);
-        if (CheckValidation.validation(ValidationType.DATE, String.valueOf(date))) {
-            boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-            boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-            boolean isUpdated = reservationBO.updateRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-            Alert alert;
-            if (isUpdated) {
-                alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully updated");
-                clearAll();
-                lblReservationID.setText(generateNewId());
-            } else {
-                alert = new Alert(Alert.AlertType.ERROR, "Error");
-            }
-            alert.show();
-
-            ReservationTM tm = table.getSelectionModel().getSelectedItem();
-            tm.setRes_id(res_id);
-            tm.setStudent_id(student_id);
-            tm.setDate(date);
-            tm.setStatus(status);
-            tm.setRoom_type_id(room_id);
-            table.refresh();
+        boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        boolean isUpdated = reservationBO.updateRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
+        Alert alert;
+        if (isUpdated) {
+            alert = new Alert(Alert.AlertType.INFORMATION, "Registration has been successfully updated");
+            clearAll();
+            lblReservationID.setText(generateNewId());
         } else {
-            //date
-            lblDate.setText("Incorrect date");
-            txtDate.requestFocus();
+            alert = new Alert(Alert.AlertType.ERROR, "Error");
         }
+        alert.show();
+
+        ReservationTM tm = table.getSelectionModel().getSelectedItem();
+        tm.setRes_id(res_id);
+        tm.setStudent_id(student_id);
+        tm.setDate(date);
+        tm.setStatus(status);
+        tm.setRoom_type_id(room_id);
+        table.refresh();
     }
 
     @Override
@@ -215,8 +198,8 @@ public class RegistrationFormController implements Initializable {
         lblReservationID.setText(null);
         txtDate.setValue(null);
         txtStudentId.setText(null);
-        cmbRoomTypeID.setValue(null);
-        cmbStatus.setValue(null);
+        cmbRoomTypeID.setValue("");
+        cmbStatus.setValue("");
     }
 
     private void loadAll() {

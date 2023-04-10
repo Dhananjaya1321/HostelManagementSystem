@@ -90,7 +90,6 @@ public class ManageStudentFormController implements Initializable {
 
         if (CheckValidation.validation(ValidationType.NAME, name)) {
             if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
-                if (CheckValidation.validation(ValidationType.DATE, String.valueOf(dob))) {
                     boolean isAdded = studentBO.saveStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
                     Alert alert;
                     if (isAdded) {
@@ -101,11 +100,6 @@ public class ManageStudentFormController implements Initializable {
                         alert = new Alert(Alert.AlertType.ERROR, "Error");
                     }
                     alert.show();
-                } else {
-                    //date
-                    lblDate.setText("Incorrect date");
-                    txtDOB.requestFocus();
-                }
             } else {
                 //contact
                 lblContact.setText("Incorrect number");
@@ -134,7 +128,6 @@ public class ManageStudentFormController implements Initializable {
 
         if (CheckValidation.validation(ValidationType.NAME, name)) {
             if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
-                if (CheckValidation.validation(ValidationType.DATE, String.valueOf(dob))) {
                     boolean isAdded = studentBO.deleteStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
                     Alert alert;
                     if (isAdded) {
@@ -146,11 +139,6 @@ public class ManageStudentFormController implements Initializable {
                         alert = new Alert(Alert.AlertType.ERROR, "Error");
                     }
                     alert.show();
-                } else {
-                    //date
-                    lblDate.setText("Incorrect date");
-                    txtDOB.requestFocus();
-                }
             } else {
                 //contact
                 lblContact.setText("Incorrect number");
@@ -178,7 +166,6 @@ public class ManageStudentFormController implements Initializable {
 
         if (CheckValidation.validation(ValidationType.NAME, name)) {
             if (CheckValidation.validation(ValidationType.CONTACT, contact)) {
-                if (CheckValidation.validation(ValidationType.DATE, String.valueOf(dob))) {
                     boolean isAdded = studentBO.updateStudent(new StudentDTO(studentId, name, address, contact, dob, gender));
                     Alert alert;
                     if (isAdded) {
@@ -196,11 +183,6 @@ public class ManageStudentFormController implements Initializable {
                     selectedCustomer.setContact_no(contact);
                     selectedCustomer.setGender(gender);
                     table.refresh();
-                } else {
-                    //date
-                    lblDate.setText("Incorrect date");
-                    txtDOB.requestFocus();
-                }
             } else {
                 //contact
                 lblContact.setText("Incorrect number");
@@ -242,7 +224,7 @@ public class ManageStudentFormController implements Initializable {
         txtAddress.setText(null);
         txtContact.setText(null);
         txtDOB.setValue(null);
-        cmbGender.setValue(null);
+        cmbGender.setValue("");
     }
 
     private void loadAll() {

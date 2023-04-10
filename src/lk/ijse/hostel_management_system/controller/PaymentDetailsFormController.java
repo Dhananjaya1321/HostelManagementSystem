@@ -46,7 +46,7 @@ public class PaymentDetailsFormController implements Initializable {
 
     @FXML
     private TableColumn<?, ?> colGender;
-    private final PaymentDetailsBO paymentDetailsBO = (PaymentDetailsBO) BOFactory.getInstance().getBOType(BOType.PAYMENt_DETAILS);
+    private final PaymentDetailsBO paymentDetailsBO = (PaymentDetailsBO) BOFactory.getInstance().getBOType(BOType.PAYMENT_DETAILS);
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
