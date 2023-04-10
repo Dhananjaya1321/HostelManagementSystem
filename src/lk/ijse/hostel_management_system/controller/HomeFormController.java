@@ -1,5 +1,6 @@
 package lk.ijse.hostel_management_system.controller;
 
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,6 +15,8 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.ResourceBundle;
 
 public class HomeFormController implements Initializable {
@@ -61,7 +64,14 @@ public class HomeFormController implements Initializable {
     void btnStudent(ActionEvent event) {
         setPane("ManageStudentForm.fxml");
     }
-    private void setPane(String formName){
+
+    @FXML
+    void btnPaymentDetails(ActionEvent actionEvent) {
+        setPane("PaymentDetailsForm.fxml");
+    }
+
+
+    private void setPane(String formName) {
         Parent load = null;
         try {
             load = FXMLLoader.load(getClass().getResource("/lk/ijse/hostel_management_system/view/" + formName));
@@ -76,10 +86,33 @@ public class HomeFormController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        runningTime();
+
+        long millis = System.currentTimeMillis();
+        java.sql.Date date = new java.sql.Date(millis);
+        lblDate.setText(String.valueOf(date));
+
         setPane("DashboardForm.fxml");
     }
 
-    public void btnPaymentDetails(ActionEvent actionEvent) {
-        setPane("PaymentDetailsForm.fxml");
+
+    private void runningTime() {
+        final Thread thread = new Thread(() -> {
+            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm:ss aa ");
+            while (true) {
+                try {
+                    Thread.sleep(1000);
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                final String times = simpleDateFormat.format(new Date());
+                Platform.runLater(() -> {
+                    lblTime.setText(times);
+                });
+            }
+        });
+        thread.start();
     }
+
+
 }
