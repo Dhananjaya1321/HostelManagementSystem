@@ -20,7 +20,7 @@ public class UserDAOImpl implements UserDAO {
             transaction.rollback();
             e.printStackTrace();
             return false;
-        }finally {
+        } finally {
             session.close();
         }
     }
@@ -35,14 +35,14 @@ public class UserDAOImpl implements UserDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            User user = (User) session.get(User.class,userName);
+            User user = (User) session.get(User.class, userName);
             transaction.commit();
             return user;
         } catch (Exception e) {
             transaction.rollback();
             e.printStackTrace();
             return null;
-        }finally {
+        } finally {
             session.close();
         }
     }

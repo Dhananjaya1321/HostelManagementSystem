@@ -17,10 +17,10 @@ public class QueryDAOImpl implements QueryDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-            Query query = session.createQuery("SELECT s.student_id,s.name,s.address,s.contact_no,s.dob,s.gender FROM\n" +
-                    "Student s INNER JOIN Reservation r ON s.student_id=r.student.student_id WHERE r.status=:status");
-            query.setParameter("status", "Pending payment");
-            List<Object[]> list = query.list();
+            List<Object[]> list = session
+                    .createQuery("SELECT s.student_id,s.name,s.address,s.contact_no,s.dob,s.gender FROM Student s INNER JOIN Reservation r ON s.student_id=r.student.student_id WHERE r.status=:status")
+                    .setParameter("status", "Pending payment")
+                    .list();
             transaction.commit();
             ArrayList<CustomEntity> customEntities = new ArrayList<>();
             for (Object[] o : list) {
@@ -40,12 +40,13 @@ public class QueryDAOImpl implements QueryDAO {
             transaction.rollback();
             e.printStackTrace();
             return null;
-        }finally {
+        } finally {
             session.close();
         }
     }
+
     @Override
-    public ArrayList<CustomEntity> search(String type,String value) {
+    public ArrayList<CustomEntity> search(String type, String value) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
@@ -55,12 +56,12 @@ public class QueryDAOImpl implements QueryDAO {
 
             if (type.equals("name")) {
                 query.setParameter("column", "s.name");
-            }else if (type.equals("contact")) {
+            } else if (type.equals("contact")) {
                 query.setParameter("column", "s.contact_no");
-            }else {
+            } else {
                 query.setParameter("column", "s.student_id");
             }
-            query.setParameter("like", "%"+value+"%");
+            query.setParameter("like", "%" + value + "%");
             List<Object[]> list = query.list();
             transaction.commit();
             ArrayList<CustomEntity> customEntities = new ArrayList<>();
@@ -80,7 +81,7 @@ public class QueryDAOImpl implements QueryDAO {
             transaction.rollback();
             e.printStackTrace();
             return null;
-        }finally {
+        } finally {
             session.close();
         }
     }

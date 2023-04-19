@@ -143,8 +143,6 @@ public class RegistrationFormController implements Initializable {
         status = cmbStatus.getValue();
         room_id = cmbRoomTypeID.getValue();
         lblDate.setText(null);
-//        boolean isAdded = reservationBO.saveRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
-//        boolean isDeleted = reservationBO.deleteRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
         boolean isUpdated = reservationBO.updateRegistration(new ReservationDTO(res_id, date, student_id, room_id, status));
         Alert alert;
         if (isUpdated) {
