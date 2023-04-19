@@ -22,7 +22,6 @@ public class QueryDAOImpl implements QueryDAO {
             query.setParameter("status", "Pending payment");
             List<Object[]> list = query.list();
             transaction.commit();
-            session.close();
             ArrayList<CustomEntity> customEntities = new ArrayList<>();
             for (Object[] o : list) {
                 customEntities.add(
@@ -39,9 +38,10 @@ public class QueryDAOImpl implements QueryDAO {
             return customEntities;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return null;
+        }finally {
+            session.close();
         }
     }
     @Override
@@ -63,7 +63,6 @@ public class QueryDAOImpl implements QueryDAO {
             query.setParameter("like", "%"+value+"%");
             List<Object[]> list = query.list();
             transaction.commit();
-            session.close();
             ArrayList<CustomEntity> customEntities = new ArrayList<>();
             for (Object[] o : list) {
                 customEntities.add(
@@ -76,13 +75,13 @@ public class QueryDAOImpl implements QueryDAO {
                                 (String) o[5])
                 );
             }
-            System.out.println(customEntities.toString());
             return customEntities;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return null;
+        }finally {
+            session.close();
         }
     }
 }

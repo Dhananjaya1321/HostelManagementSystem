@@ -15,13 +15,13 @@ public class UserDAOImpl implements UserDAO {
         try {
             session.save(entity);
             transaction.commit();
-            session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        }finally {
+            session.close();
         }
     }
 
@@ -37,13 +37,13 @@ public class UserDAOImpl implements UserDAO {
         try {
             User user = (User) session.get(User.class,userName);
             transaction.commit();
-            session.close();
             return user;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return null;
+        }finally {
+            session.close();
         }
     }
 

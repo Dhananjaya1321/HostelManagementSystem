@@ -15,35 +15,35 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public boolean save(Reservation entity) {
-        Session session= FactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
         try {
             session.save(entity);
             transaction.commit();
-            session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        } finally {
+            session.close();
         }
     }
 
     @Override
     public boolean delete(Reservation entity) {
-        Session session= FactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
         try {
             session.delete(entity);
             transaction.commit();
-            session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        } finally {
+            session.close();
         }
     }
 
@@ -58,13 +58,13 @@ public class ReservationDAOImpl implements ReservationDAO {
             query.setParameter("res_id", entity.getRes_id());
             boolean isAdded = query.executeUpdate() > 0;
             transaction.commit();
-            session.close();
             return isAdded;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        } finally {
+            session.close();
         }
     }
 
@@ -77,13 +77,13 @@ public class ReservationDAOImpl implements ReservationDAO {
             query.setParameter("room_type_id", room_type_id);
             Long count = (Long) query.uniqueResult();
             transaction.commit();
-            session.close();
             return Math.toIntExact(count);
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return 0;
+        } finally {
+            session.close();
         }
     }
 
@@ -93,7 +93,6 @@ public class ReservationDAOImpl implements ReservationDAO {
         String sqlQuery = "SELECT r.res_id FROM Reservation AS r ORDER BY res_id DESC";
         Query query = session.createQuery(sqlQuery);
         List list = query.list();
-        session.close();
         if (list.size() > 0) {
             return (String) list.get(0);
         }
@@ -102,22 +101,20 @@ public class ReservationDAOImpl implements ReservationDAO {
 
     @Override
     public ArrayList<Reservation> getAll() {
-        Session session= FactoryConfiguration.getInstance().getSession();
-        Transaction transaction=session.beginTransaction();
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
         try {
             NativeQuery nativeQuery = session.createSQLQuery("SELECT * FROM reservation");
             nativeQuery.addEntity(Reservation.class);
-            List<Reservation> reservationList=nativeQuery.list();
+            List<Reservation> reservationList = nativeQuery.list();
             transaction.commit();
-            session.close();
             return (ArrayList<Reservation>) reservationList;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return null;
+        } finally {
+            session.close();
         }
     }
-
-
 }

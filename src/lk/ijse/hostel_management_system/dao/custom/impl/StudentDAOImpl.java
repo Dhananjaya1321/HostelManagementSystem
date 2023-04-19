@@ -20,11 +20,9 @@ public class StudentDAOImpl implements StudentDAO {
         try {
             session.save(entity);
             transaction.commit();
-            session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
         }
@@ -37,13 +35,13 @@ public class StudentDAOImpl implements StudentDAO {
         try {
             session.delete(entity);
             transaction.commit();
-            session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        }finally {
+            session.close();
         }
     }
 
@@ -54,13 +52,13 @@ public class StudentDAOImpl implements StudentDAO {
         try {
             session.update(entity);
             transaction.commit();
-            session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        }finally {
+            session.close();
         }
     }
     @Override
@@ -72,13 +70,13 @@ public class StudentDAOImpl implements StudentDAO {
             nativeQuery.addEntity(Student.class);
             List<Student> studentList=nativeQuery.list();
             transaction.commit();
-            session.close();
             return (ArrayList<Student>) studentList;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return null;
+        }finally {
+            session.close();
         }
     }
 

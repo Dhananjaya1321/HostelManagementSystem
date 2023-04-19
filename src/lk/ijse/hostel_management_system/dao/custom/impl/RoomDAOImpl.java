@@ -30,13 +30,13 @@ public class RoomDAOImpl implements RoomDAO {
                 session.save(entity);
             }
             transaction.commit();
-            session.close();
             return true;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        }finally {
+            session.close();
         }
     }
 
@@ -53,13 +53,13 @@ public class RoomDAOImpl implements RoomDAO {
             query.setParameter("room_id", entity.getRoom_type_id());
             boolean isDeleted = query.executeUpdate() > 0;
             transaction.commit();
-            session.close();
             return isDeleted;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        }finally {
+            session.close();
         }
     }
 
@@ -74,13 +74,13 @@ public class RoomDAOImpl implements RoomDAO {
             query.setParameter("room_id", entity.getRoom_type_id());
             boolean isDeleted = query.executeUpdate() > 0;
             transaction.commit();
-            session.close();
             return isDeleted;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return false;
+        }finally {
+            session.close();
         }
     }
 
@@ -91,13 +91,13 @@ public class RoomDAOImpl implements RoomDAO {
         try {
             Room room = session.get(Room.class, room_type_id);
             transaction.commit();
-            session.close();
             return room;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return null;
+        }finally {
+            session.close();
         }
     }
 
@@ -110,13 +110,13 @@ public class RoomDAOImpl implements RoomDAO {
             nativeQuery.addEntity(Room.class);
             List<Room> studentList=nativeQuery.list();
             transaction.commit();
-            session.close();
             return (ArrayList<Room>) studentList;
         } catch (Exception e) {
             transaction.rollback();
-            session.close();
             e.printStackTrace();
             return null;
+        }finally {
+            session.close();
         }
     }
 }
