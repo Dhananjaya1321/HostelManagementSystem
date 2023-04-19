@@ -201,15 +201,15 @@ public class ManageRoomFormController implements Initializable {
                     lblKeyMoneyRM_1324.setText(String.valueOf(r.getKey_money()));
                     lblQTYRM_1324.setText(String.valueOf(r.getQty()));
                     break;
-                case "RM-5467":
+                case "RM-0093":
                     lblKeyMoneyRM_0093.setText(String.valueOf(r.getKey_money()));
                     lblQTYRM_0093.setText(String.valueOf(r.getQty()));
                     break;
-                case "RM-7896":
+                case "RM-5467":
                     lblKeyMoneyRM_5467.setText(String.valueOf(r.getKey_money()));
                     lblQTYRM_54667.setText(String.valueOf(r.getQty()));
                     break;
-                case "RM-0093":
+                case "RM-7896":
                     lblKeyMoneyRM_7896.setText(String.valueOf(r.getKey_money()));
                     lblQTYRM_7896.setText(String.valueOf(r.getQty()));
                     break;
