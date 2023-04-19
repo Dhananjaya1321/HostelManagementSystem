@@ -2,6 +2,7 @@ package lk.ijse.hostel_management_system.dao.custom.impl;
 
 import lk.ijse.hostel_management_system.dao.custom.ReservationDAO;
 import lk.ijse.hostel_management_system.entity.Reservation;
+import lk.ijse.hostel_management_system.entity.Room;
 import lk.ijse.hostel_management_system.util.FactoryConfiguration;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
@@ -51,14 +52,15 @@ public class ReservationDAOImpl implements ReservationDAO {
     public boolean update(Reservation entity) {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
+        System.out.println(entity.getRes_id());
         try {
             Query query = session.createQuery("UPDATE Reservation SET room.room_type_id=:room_type_id, status=:status WHERE res_id=:res_id");
             query.setParameter("room_type_id", entity.getRoom().getRoom_type_id());
             query.setParameter("status", entity.getStatus());
             query.setParameter("res_id", entity.getRes_id());
-            boolean isAdded = query.executeUpdate() > 0;
+            boolean isUpdated = query.executeUpdate() > 0;
             transaction.commit();
-            return isAdded;
+            return isUpdated;
         } catch (Exception e) {
             transaction.rollback();
             e.printStackTrace();
