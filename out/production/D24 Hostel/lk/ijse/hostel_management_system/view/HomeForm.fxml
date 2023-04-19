@@ -33,7 +33,7 @@
                      <children>
                         <AnchorPane fx:id="clockPane" layoutX="15.0" layoutY="12.0" prefHeight="177.0" prefWidth="221.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;">
                            <children>
-                              <Label fx:id="lblDate" layoutX="55.0" layoutY="110.0" prefHeight="30.0" prefWidth="113.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10  10;" textAlignment="CENTER">
+                              <Label fx:id="lblDate" layoutX="54.0" layoutY="110.0" prefHeight="30.0" prefWidth="113.0" style="-fx-background-color: white; -fx-background-radius: 0 0 10  10;" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="20.0" />
                                  </font>
@@ -41,7 +41,7 @@
                                     <DropShadow />
                                  </effect>
                               </Label>
-                              <Label fx:id="lblTime" layoutX="11.0" layoutY="37.0" prefHeight="73.0" prefWidth="200.0" style="-fx-background-color: white; -fx-background-radius: 10;" textAlignment="CENTER">
+                              <Label fx:id="lblTime" layoutX="11.0" layoutY="37.0" prefHeight="73.0" prefWidth="199.0" style="-fx-background-color: white; -fx-background-radius: 10;" textAlignment="CENTER">
                                  <font>
                                     <Font name="System Bold" size="32.0" />
                                  </font>

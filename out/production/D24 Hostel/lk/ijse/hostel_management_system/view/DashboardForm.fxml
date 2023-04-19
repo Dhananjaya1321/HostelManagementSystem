@@ -52,9 +52,14 @@
                         <DropShadow />
                      </effect>
                      <children>
-                        <Label fx:id="lblRoomCount" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label fx:id="lblRoomCount" textFill="#00ddff" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label text="Rooms" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -70,9 +75,14 @@
                         <DropShadow />
                      </effect>
                      <children>
-                        <Label fx:id="lblPendingPayment" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label fx:id="lblPendingPayment" textFill="#00c3ff" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label text="Panding payments" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
                      </children>
@@ -88,15 +98,25 @@
                         <DropShadow />
                      </effect>
                      <children>
-                        <Label fx:id="lblRegisteredStudent" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
+                        <Label fx:id="lblRegisteredStudent" textFill="#00ddff" GridPane.halignment="CENTER" GridPane.valignment="CENTER">
                            <font>
                               <Font size="30.0" />
+                           </font>
+                        </Label>
+                        <Label text="Registered Students" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
                            </font>
                         </Label>
                      </children>
                   </GridPane>
                </children>
             </GridPane>
+            <Label text="Today Details">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Label>
          </children>
       </GridPane>
       <GridPane layoutX="44.0" layoutY="10.0" GridPane.columnIndex="1" GridPane.rowIndex="1">
@@ -108,7 +128,7 @@
             <RowConstraints maxHeight="18.0" minHeight="10.0" prefHeight="18.0" vgrow="SOMETIMES" />
          </rowConstraints>
          <children>
-            <AnchorPane maxHeight="369.0" maxWidth="1000.0" prefWidth="510.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;" GridPane.valignment="BOTTOM">
+            <AnchorPane maxWidth="1000.0" prefHeight="387.0" prefWidth="500.0" style="-fx-background-color: white; -fx-border-radius: 10; -fx-background-radius: 10;" GridPane.valignment="BOTTOM">
                <effect>
                   <DropShadow />
                </effect>

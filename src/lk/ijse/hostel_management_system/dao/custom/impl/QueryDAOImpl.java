@@ -17,8 +17,6 @@ public class QueryDAOImpl implements QueryDAO {
         Session session = FactoryConfiguration.getInstance().getSession();
         Transaction transaction = session.beginTransaction();
         try {
-
-
             Query query = session.createQuery("SELECT s.student_id,s.name,s.address,s.contact_no,s.dob,s.gender FROM\n" +
                     "Student s INNER JOIN Reservation r ON s.student_id=r.student.student_id WHERE r.status=:status");
             query.setParameter("status", "Pending payment");
@@ -38,6 +36,47 @@ public class QueryDAOImpl implements QueryDAO {
                 );
             }
 
+            return customEntities;
+        } catch (Exception e) {
+            transaction.rollback();
+            session.close();
+            e.printStackTrace();
+            return null;
+        }
+    }
+    @Override
+    public ArrayList<CustomEntity> search(String type,String value) {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        try {
+            Query query = session.createQuery("SELECT s.student_id,s.name,s.address,s.contact_no,s.dob,s.gender FROM\n" +
+                    "Student s INNER JOIN Reservation r ON s.student_id=r.student.student_id WHERE r.status='Pending payment' " +
+                    "AND :column LIKE :like");
+
+            if (type.equals("name")) {
+                query.setParameter("column", "s.name");
+            }else if (type.equals("contact")) {
+                query.setParameter("column", "s.contact_no");
+            }else {
+                query.setParameter("column", "s.student_id");
+            }
+            query.setParameter("like", "%"+value+"%");
+            List<Object[]> list = query.list();
+            transaction.commit();
+            session.close();
+            ArrayList<CustomEntity> customEntities = new ArrayList<>();
+            for (Object[] o : list) {
+                customEntities.add(
+                        new CustomEntity(
+                                (String) o[0],
+                                (String) o[1],
+                                (String) o[2],
+                                (String) o[3],
+                                (LocalDate) o[4],
+                                (String) o[5])
+                );
+            }
+            System.out.println(customEntities.toString());
             return customEntities;
         } catch (Exception e) {
             transaction.rollback();

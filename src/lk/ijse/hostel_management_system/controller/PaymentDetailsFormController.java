@@ -12,11 +12,15 @@ import lk.ijse.hostel_management_system.bo.BOFactory;
 import lk.ijse.hostel_management_system.bo.BOType;
 import lk.ijse.hostel_management_system.bo.custom.PaymentDetailsBO;
 import lk.ijse.hostel_management_system.dto.CustomDTO;
+import lk.ijse.hostel_management_system.util.CheckValidation;
 import lk.ijse.hostel_management_system.view.tm.StudentTM;
 
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class PaymentDetailsFormController implements Initializable {
 
@@ -62,7 +66,7 @@ public class PaymentDetailsFormController implements Initializable {
     private void loadAll() {
         table.getItems().clear();
         ArrayList<CustomDTO> allStudent = paymentDetailsBO.getAllPendingPaymentStudent();
-        for (CustomDTO c:allStudent) {
+        for (CustomDTO c : allStudent) {
             table.getItems().add(
                     new StudentTM(
                             c.getStudent_id(),
@@ -76,8 +80,42 @@ public class PaymentDetailsFormController implements Initializable {
         }
     }
 
+    private String text;
+    private final Pattern namePattern = Pattern.compile("[a-zA-Z][a-zA-Z]{1,32}");
+    private final Pattern contactPattern = Pattern.compile("^(?:7|0|(?:\\\\+94))[0-9]{9,10}$");
+    private Matcher matcherName;
+    private Matcher matcherContact;
+    private ArrayList<CustomDTO> customDTOS;
+
     public void btnSearch(KeyEvent keyEvent) {
-        String text = txtSearch.getText();
-        //I will create search method next time
+        text = txtSearch.getText();
+        table.getItems().clear();
+        if (!text.equals("")) {
+            matcherName = namePattern.matcher(text);
+            matcherContact = contactPattern.matcher(text);
+
+            if (matcherName.matches() && !matcherContact.matches()) {
+                customDTOS = paymentDetailsBO.search("name",text);
+            } else if (!matcherName.matches() && matcherContact.matches()) {
+                customDTOS = paymentDetailsBO.search("contact",text);
+            } else {
+                customDTOS = paymentDetailsBO.search("studentId",text);
+            }
+            for (CustomDTO c : customDTOS) {
+                table.getItems().add(
+                        new StudentTM(
+                                c.getStudent_id(),
+                                c.getName(),
+                                c.getAddress(),
+                                c.getContact_no(),
+                                c.getDob(),
+                                c.getGender()
+                        )
+                );
+            }
+        } else {
+            loadAll();
+        }
+
     }
 }

@@ -9,4 +9,6 @@ import java.util.ArrayList;
 public interface PaymentDetailsBO extends SupperBO {
 
     ArrayList<CustomDTO> getAllPendingPaymentStudent();
+
+    ArrayList<CustomDTO> search(String type, String value);
 }

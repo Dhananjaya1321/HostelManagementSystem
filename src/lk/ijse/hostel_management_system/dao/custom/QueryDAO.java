@@ -7,4 +7,6 @@ import java.util.ArrayList;
 
 public interface QueryDAO extends SupperDAO {
     ArrayList<CustomEntity> getAllPendingPaymentStudent();
+
+    ArrayList<CustomEntity> search(String type, String value);
 }

@@ -30,4 +30,22 @@ public class PaymentDetailsBOImpl implements PaymentDetailsBO {
         }
         return customDTOS;
     }
+    @Override
+    public ArrayList<CustomDTO> search(String type, String value) {
+        ArrayList<CustomEntity> customEntities = queryDAO.search(type,value);
+        ArrayList<CustomDTO> customDTOS = new ArrayList<>();
+        for (CustomEntity c : customEntities) {
+            customDTOS.add(
+                    new CustomDTO(
+                            c.getStudent_id(),
+                            c.getName(),
+                            c.getAddress(),
+                            c.getContact_no(),
+                            c.getDob(),
+                            c.getGender()
+                    )
+            );
+        }
+        return customDTOS;
+    }
 }
