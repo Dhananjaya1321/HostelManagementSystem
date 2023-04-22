@@ -21,6 +21,7 @@ public class CustomDTO {
     private String type;
     private double key_money;
     private int qty;
+    private int count;
     private String student_id;
     private String name;
     private String address;

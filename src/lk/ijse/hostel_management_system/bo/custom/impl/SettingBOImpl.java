@@ -12,6 +12,6 @@ public class SettingBOImpl implements SettingBO {
 
     @Override
     public boolean updateUserNameAndPassword(UserDTO dto) {
-        return userDAO.save(new User(dto.getUserName(), dto.getPassword()));
+        return userDAO.updateUserNameAndPassword(new User(dto.getUserName(), dto.getPassword()));
     }
 }

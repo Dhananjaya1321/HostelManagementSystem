@@ -85,4 +85,22 @@ public class QueryDAOImpl implements QueryDAO {
             session.close();
         }
     }
+
+    @Override
+    public CustomEntity checkUser() {
+        Session session = FactoryConfiguration.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
+        CustomEntity customEntity=new CustomEntity();
+        try {
+            customEntity.setCount(session.createQuery("SELECT COUNT(userName) FROM User").list().size());
+            transaction.commit();
+            return customEntity;
+        } catch (Exception e) {
+            transaction.rollback();
+            e.printStackTrace();
+            return null;
+        } finally {
+            session.close();
+        }
+    }
 }

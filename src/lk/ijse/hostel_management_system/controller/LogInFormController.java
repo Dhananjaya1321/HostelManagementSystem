@@ -107,6 +107,9 @@ public class LogInFormController implements Initializable {
         txtPassword.setVisible(false);
         imgInvsible.setVisible(true);
         pswdPassword.setVisible(true);
+       if (logInBO.checkUser().getCount() != 0){
+           logInBO.addUser(new UserDTO("user","user"));
+       }
     }
 
     private void clearAll(){

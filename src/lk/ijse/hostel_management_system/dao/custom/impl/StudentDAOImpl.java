@@ -77,6 +77,4 @@ public class StudentDAOImpl implements StudentDAO {
             session.close();
         }
     }
-
-
 }
