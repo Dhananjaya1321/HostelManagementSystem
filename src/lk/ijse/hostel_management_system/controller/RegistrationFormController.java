@@ -176,9 +176,9 @@ public class RegistrationFormController implements Initializable {
         lblReservationID.setText(generateNewId());
 
         table.getColumns().get(0).setCellValueFactory(new PropertyValueFactory<>("res_id"));
-        table.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("date"));
-        table.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("student_id"));
-        table.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
+        table.getColumns().get(1).setCellValueFactory(new PropertyValueFactory<>("student_id"));
+        table.getColumns().get(2).setCellValueFactory(new PropertyValueFactory<>("room_type_id"));
+        table.getColumns().get(3).setCellValueFactory(new PropertyValueFactory<>("date"));
         table.getColumns().get(4).setCellValueFactory(new PropertyValueFactory<>("status"));
         table.getSelectionModel().selectedItemProperty().addListener((observable, oldValue, newValue) -> {
             if (newValue != null) {
